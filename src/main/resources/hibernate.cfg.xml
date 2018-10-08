@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+       "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.dialect">
+  	org.hibernate.dialect.PostgreSQLDialect
+  </property>
+  <property name="hibernate.connection.driver.class">
+  	org.postgresql.Driver
+  </property>
+  <property name="hibernate.connection.url">
+  	jdbc:postgresql://rev1808.cqgqmatj99sx.us-east-2.rds.amazonaws.com:5432/rev1808?
+  </property>
+  <property name="hibernate.connection.username">
+  	christiandawson
+  </property>
+  <property name="hibernate.connection.password">
+  	2psinapod
+  </property>
+  
+  <property name="hibernate.show_sql">
+  true
+  </property>
+  
+  <!-- Mapping -->
+  
+  <!-- Level 2 Cache -->
+  <property name="hibernate.cache.use_second_level_cache">
+  true
+  </property>
+  <!-- Specify caching provider -->
+  <property name="hibernate.cache.region.factory_class">
+  org.hibernate.cache.ehcache.EhCacheRegionFactory
+  </property>
+ </session-factory>
+</hibernate-configuration>
