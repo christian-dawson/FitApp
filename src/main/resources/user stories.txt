@@ -1,0 +1,19 @@
+As a user I can register an account
+As a user I can login
+As a user I can create goals
+As a user I can search for a trainer in the website
+As a user I can communicate with any trainer
+As a user I can request services with a trainer
+As a user I can review plans that are suggested by the trainer
+As a user I can select which plan I want to commit to
+As a user can post weekly updates on their progress
+As a user I can request new plans.
+As a trainer I can register an account
+As a trainer I can login
+As a trainer I can see all of my trainees
+As a trainer I can communicate with all of my trainees
+As a trainer I can review the goals of any user that requests services
+As a trainer I can accept requests to work with users
+As a trainer I can submit potential plans to a user consisting of the workout and dietary regimen
+As a trainer I can review the weekly progress of my trainees.
+As a trainer I can only 
