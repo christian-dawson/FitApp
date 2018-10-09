@@ -1,5 +1,5 @@
 #Folders to ignore
-/Angular
+Angular/
 
 # Compiled class file
 *.class
