@@ -1,3 +1,6 @@
+#Folders to ignore
+Angular/
+
 # Compiled class file
 *.class
 
