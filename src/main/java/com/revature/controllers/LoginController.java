@@ -19,8 +19,9 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String doGet(HttpSession session) {
-		if(session.getAttribute("user") != null) return "home";
-		return "login";
+		System.out.println("inside of login: doget");
+		if(session.getAttribute("user") != null) return "forward:angular/index.html";
+		return "forward:angular/index.html";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
