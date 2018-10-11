@@ -20,11 +20,10 @@ public class LoginController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String doGet(HttpSession session) {
 		System.out.println("inside of login: doget");
-		if(session.getAttribute("user") != null) return "forward:angular/index.html";
 		return "forward:angular/index.html";
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST, consumes={"application/json"})
+	@RequestMapping(value="/asdf", method=RequestMethod.POST, consumes={"application/json"})
 	public void login(@RequestBody User user, HttpSession session) {
 		user = userServ.authenticate(user);
 		System.out.println(user);
