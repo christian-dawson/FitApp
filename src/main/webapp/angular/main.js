@@ -134,9 +134,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/@angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -149,22 +150,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-                _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
+                _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -192,7 +195,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n  <label for=\"username\">Username</label><br>\r\n  <input type=\"text\" [(ngModel)]=\"username\"><br>\r\n  <label for=\"username\">Password</label><br>\r\n  <input type=\"password\" [(ngModel)]=\"password\"><br>\r\n  <input type=\"submit\" (click)=\"login()\">\r\n</form>\r\n\r\n"
+module.exports = "<form>\r\n  <label for=\"username\">Username</label><br>\r\n  <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n  <label for=\"username\">Password</label><br>\r\n  <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n  <input type=\"submit\" (click)=\"login()\">\r\n</form>\r\n\r\n"
 
 /***/ }),
 
@@ -207,7 +210,7 @@ module.exports = "<form>\r\n  <label for=\"username\">Username</label><br>\r\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -220,8 +223,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(userService) {
-        this.userService = userService;
+    function LoginComponent(loginService) {
+        this.loginService = loginService;
     }
     LoginComponent.prototype.login = function () {
         this.user = {
@@ -236,7 +239,7 @@ var LoginComponent = /** @class */ (function () {
             weight: this.weight,
             height: this.height
         };
-        this.userService.postUser(this.user)
+        this.loginService.login(this.user)
             .subscribe();
     };
     LoginComponent.prototype.ngOnInit = function () {
@@ -246,9 +249,9 @@ var LoginComponent = /** @class */ (function () {
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")],
-            providers: [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]]
+            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]]
         }),
-        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -257,16 +260,16 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/user.service.ts":
-/*!******************************************!*\
-  !*** ./src/app/services/user.service.ts ***!
-  \******************************************/
-/*! exports provided: UserService */
+/***/ "./src/app/services/login.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/services/login.service.ts ***!
+  \*******************************************/
+/*! exports provided: LoginService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginService", function() { return LoginService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -286,24 +289,21 @@ var httpOptions = {
         'Content-Type': 'application/json'
     })
 };
-var UserService = /** @class */ (function () {
-    function UserService(http) {
+var LoginService = /** @class */ (function () {
+    function LoginService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/user/';
+        this.url = 'http://localhost:8080/FitApp/login';
     }
-    UserService.prototype.getUsers = function () {
-        return this.http.get(this.url);
+    LoginService.prototype.login = function (user) {
+        return this.http.post(this.url, JSON.stringify(user), httpOptions);
     };
-    UserService.prototype.postUser = function (user) {
-        return this.http.post(this.url, user, httpOptions);
-    };
-    UserService = __decorate([
+    LoginService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], UserService);
-    return UserService;
+    ], LoginService);
+    return LoginService;
 }());
 
 

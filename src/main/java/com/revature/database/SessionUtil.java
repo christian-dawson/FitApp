@@ -10,8 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class SessionUtil {
 	
-	private SessionUtil() {}
-	
 	private static SessionFactory sessionFactory;
 	
 	static {
