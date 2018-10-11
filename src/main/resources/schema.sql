@@ -6,7 +6,7 @@ create table if not exists user_account (
 "firstName" varchar(20) not null,
 "lastName" varchar(20) not null,
 "address" text not null,
-"dob" date not null,
+"birthdate" date not null,
 "weight" numeric(5,2) not null,
 "height" int not null,
 "type" varchar(7) not null,

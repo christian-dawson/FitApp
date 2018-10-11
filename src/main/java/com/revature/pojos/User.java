@@ -2,12 +2,36 @@ package com.revature.pojos;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_account")
 public class User {
 	
+	@Id
+	@Column(name="user_id")
 	private int id;
-	private String username, password, address, firstName, lastName, type;
+	@Column(name="username")
+	private String username;
+	@Column(name="password")
+	private String password;
+	@Column(name="address")
+	private String address;
+	@Column(name="firstName")
+	private String firstName;
+	@Column(name="lastName")
+	private String lastName;
+	@Column(name="type")
+	private String type;
+	@Column(name="birthdate")
 	private Date birthdate;
-	private double weight, height;
+	@Column(name="weight")
+	private double weight;
+	@Column(name="height")
+	private double height;
 	
 	public User() {
 		super();
