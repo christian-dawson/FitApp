@@ -1,13 +1,13 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../types/user';
-import { UserService } from '../services/user.service';
+import { LoginService } from '../services/login.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [UserService]
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
 
@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
       weight: this.weight,
       height: this.height
     };
-    this.userService.postUser(this.user)
+    this.loginService.login(this.user)
   .subscribe();
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
