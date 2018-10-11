@@ -25,9 +25,9 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes={"application/json"})
-	public void login(@RequestBody User user) {
-		System.out.println("inside of login: login");
-		userServ.authenticate(user);
-		if(user != null) System.out.println("Login success!");
+	public void login(@RequestBody User user, HttpSession session) {
+		user = userServ.authenticate(user);
+		System.out.println(user);
+		if(user != null) session.setAttribute("user", user);
 	}
 }

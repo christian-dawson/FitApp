@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDaoModel {
 
 	public List<User> readAll() {
 		createSession();
-		Query query = session.createQuery("FROM USER");
+		Query query = session.createQuery("FROM User");
 		List<User> users = query.getResultList();
 		session.close();
 		closeSession();
