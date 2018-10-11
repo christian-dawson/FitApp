@@ -2,9 +2,9 @@ package com.revature.services.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.impl.UserDaoImpl;
 import com.revature.dao.model.UserDaoModel;
 import com.revature.pojos.User;
 import com.revature.servicess.model.UserServiceModel;
@@ -12,11 +12,8 @@ import com.revature.servicess.model.UserServiceModel;
 @Service
 public class UserServiceImpl implements UserServiceModel {
 	
+	@Autowired
 	UserDaoModel userDB;
-	
-	public UserServiceImpl() {
-		userDB = new UserDaoImpl();
-	}
 
 	@Override
 	public List<User> getAll() {

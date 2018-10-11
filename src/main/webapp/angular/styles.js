@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\styles.css */"./src/styles.css");
 
 
 /***/ })

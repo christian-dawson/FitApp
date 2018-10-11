@@ -24,8 +24,9 @@ public class LoginController {
 		return "forward:angular/index.html";
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST, consumes={"application/json"})
 	public void login(@RequestBody User user) {
+		System.out.println("inside of login: login");
 		userServ.authenticate(user);
 		if(user != null) System.out.println("Login success!");
 	}
