@@ -1,32 +1,35 @@
-<form>
-  <label for="username">Username</label><br>
-  <input type="text" [(ngModel)]="username" name="user"><br>
+<div class="card" id="cardId">
+  <form class="register">
+    <label for="username">Username</label><br>
+    <input type="text" [(ngModel)]="username" name="user"><br>
+    
+    <label for="username">Password</label><br>
+    <input type="password" [(ngModel)]="password" name="pass"><br>
+    
+    <label for="address">address</label><br>
+    <input type="text" [(ngModel)]="address" name="address"><br>
   
-  <label for="username">Password</label><br>
-  <input type="password" [(ngModel)]="password" name="pass"><br>
+    <label for="firstName">First Name</label><br>
+    <input type="text" [(ngModel)]="firstName" name="firstName"><br>
+    <label for="lastName">Last Name</label><br>
+    <input type="text" [(ngModel)]="lastName" name="lastName"><br>
   
-  <label for="address">address</label><br>
-  <input type="text" [(ngModel)]="address" name="address"><br>
-
-  <label for="firstName">First Name</label><br>
-  <input type="text" [(ngModel)]="firstName" name="firstName"><br>
-  <label for="lastName">Last Name</label><br>
-  <input type="text" [(ngModel)]="lastName" name="lastName"><br>
-
-  <label for="type">User Type</label><br>
-  <select name="type">
-    <option value="trainee" selected="selected">User</option>
-    <option value="trainer">Trainer</option>
-  </select><br>
-
-  <label for="birthdate">Date of Birth</label><br>
-  <input type="date" [(ngModel)]="birthdate" name="birthdate"><br>
+    <label for="type">User Type</label><br>
+    <select name="type">
+      <option value="trainee" selected="selected">User</option>
+      <option value="trainer">Trainer</option>
+    </select><br>
   
-  <label for="height">Height</label><br>
-  <input type="number" [(ngModel)]="height" name="height"><br>
-  <label for="weight">Weight</label><br>
-  <input type="number" [(ngModel)]="Weight" name="weight">
-  
-  <input type="submit" (click)="register()">
-  
-</form>
+    <label for="birthdate">Date of Birth</label><br>
+    <input type="date" [(ngModel)]="birthdate" name="birthdate"><br>
+    
+    <label for="height">Height</label><br>
+    <input type="number" [(ngModel)]="height" name="height"><br>
+    <label for="weight">Weight</label><br>
+    <input type="number" [(ngModel)]="Weight" name="weight">
+    
+    <input type="submit" (click)="register()">
+    
+  </form>
+  <div class="blur"></div>  
+</div>

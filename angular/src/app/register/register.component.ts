@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   height: number;
   user: User;
 
-  login() {
+  register() {
     this.user = {
       username: this.username,
       password: this.password,

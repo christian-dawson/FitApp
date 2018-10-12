@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
+    NgbModule,
     HttpClientModule
   ],
   providers: [],

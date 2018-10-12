@@ -17,13 +17,13 @@ public class LoginController {
 	@Autowired
 	private UserServiceModel userServ;
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/loginadfasf", method=RequestMethod.GET)
 	public String doGet(HttpSession session) {
 		System.out.println("inside of login: doget");
 		return "forward:angular/index.html";
 	}
 	
-	@RequestMapping(value="/asdf", method=RequestMethod.POST, consumes={"application/json"})
+	@RequestMapping(value="/asdasdfasff", method=RequestMethod.POST, consumes={"application/json"})
 	public void login(@RequestBody User user, HttpSession session) {
 		user = userServ.authenticate(user);
 		System.out.println(user);
