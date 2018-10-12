@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDaoModel {
 		closeSession();
 	}
 
-	public User read(String ID) {
+	public User read(int ID) {
 		createSession();
 		User user = session.get(User.class, ID);
 		closeSession();

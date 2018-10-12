@@ -1,5 +1,6 @@
 package com.revature.pojos;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ public class User {
 	@Column(name="type")
 	private String type;
 	@Column(name="birthdate")
-	private Date birthdate;
+	private LocalDate birthdate;
 	@Column(name="weight")
 	private double weight;
 	@Column(name="height")
@@ -39,7 +40,7 @@ public class User {
 	}
 	
 	public User(int id, String username, String password, String address, String firstName, String lastName,
-			String type, Date birthdate, double weight, double height) {
+			String type, LocalDate birthdate, double weight, double height) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -109,12 +110,12 @@ public class User {
 		return type;
 	}
 
-	public Date getBirthdate() {
+	public LocalDate getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthdate(LocalDate localDate) {
+		this.birthdate = localDate;
 	}
 
 	public double getWeight() {
