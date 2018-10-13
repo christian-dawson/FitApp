@@ -32,4 +32,18 @@ public class UserServiceImpl implements UserServiceModel {
 		return null;
 	}
 
+	@Override
+	public void add(User user) {
+		userDB.create(user);
+	}
+
+	@Override
+	public User get(int id) {
+		return userDB.read(id);
+	}
+
+	@Override
+	public void update(User user) {
+		userDB.update(user);
+	}
 }

@@ -28,7 +28,7 @@ public class User {
 	@Column(name="type")
 	private String type;
 	@Column(name="birthdate")
-	private LocalDate birthdate;
+	private String birthdate;
 	@Column(name="weight")
 	private double weight;
 	@Column(name="height")
@@ -40,7 +40,7 @@ public class User {
 	}
 	
 	public User(int id, String username, String password, String address, String firstName, String lastName,
-			String type, LocalDate birthdate, double weight, double height) {
+			String type, String birthdate, double weight, double height) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -110,12 +110,12 @@ public class User {
 		return type;
 	}
 
-	public LocalDate getBirthdate() {
+	public String getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(LocalDate localDate) {
-		this.birthdate = localDate;
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	public double getWeight() {
