@@ -48,7 +48,7 @@ module.exports = "/*!\n * Bootstrap v4.1.3 (https://getbootstrap.com/)\n * Copyr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n.background{\n    background-image: url(/./src/assets/background.jpg);\n    height: 100%;\n    background-size: cover;\n    background-repeat: no-repeat;\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    left: 0;\n    top: 0;\n    z-index: 10;\n}\n\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\n.background{\r\n    height: 100%;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    z-index: 10;\r\n}\r\nbody {\r\n    background-image: url(/src/assets/background.jpg);\r\n    color: white;\r\n    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+__webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
 
 
 /***/ })
