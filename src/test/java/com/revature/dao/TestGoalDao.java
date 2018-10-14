@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
@@ -8,6 +9,9 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;

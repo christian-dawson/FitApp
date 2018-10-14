@@ -10,10 +10,17 @@
     top: 0;
     z-index: 10;
 }
-
+h1{
+    color: white !important;
+}
+form{
+    z-index: 100;
+}
 body {
     background-image: url(/src/assets/background.jpg);
-    color: white;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.card{
+    font-size: 20px;
+    background-color: rgba(254,254,254,.5); 
 }
 

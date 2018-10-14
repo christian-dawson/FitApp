@@ -19,9 +19,9 @@ public class UserDaoImpl implements UserDaoModel {
 
 	public void create(User user) {
 		createSession();
-		//Transaction tran = session.beginTransaction();
+		Transaction tran = session.beginTransaction();
 		session.save(user);
-		//tran.commit();
+		tran.commit();
 		closeSession();
 	}
 

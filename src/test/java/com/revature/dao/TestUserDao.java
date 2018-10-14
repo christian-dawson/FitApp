@@ -44,7 +44,7 @@ public class TestUserDao {
 		}
 		testUser = new User();
 	    testUser.setAddress("a;lskdfja fa sklfdja;sklfd");
-	    testUser.setBirthdate(LocalDate.now());
+	    testUser.setBirthdate("1992-04-20");
 	    testUser.setFirstName("a");
 	    testUser.setLastName("laskdfj");
 	    testUser.setHeight(1290);

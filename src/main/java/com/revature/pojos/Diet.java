@@ -2,12 +2,17 @@ package com.revature.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="diet")
 public class Diet {
+	@Id
 	@Column(name="diet_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dietId;
 	@Column(name="calories")
 	private Integer calories;

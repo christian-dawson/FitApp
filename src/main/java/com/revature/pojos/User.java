@@ -1,10 +1,11 @@
 package com.revature.pojos;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,6 +15,7 @@ public class User {
 	
 	@Id
 	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="username")
 	private String username;
@@ -28,7 +30,7 @@ public class User {
 	@Column(name="type")
 	private String type;
 	@Column(name="birthdate")
-	private String birthdate;
+	private Date birthdate;
 	@Column(name="weight")
 	private double weight;
 	@Column(name="height")
@@ -40,7 +42,7 @@ public class User {
 	}
 	
 	public User(int id, String username, String password, String address, String firstName, String lastName,
-			String type, String birthdate, double weight, double height) {
+			String type, Date birthdate, double weight, double height) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -110,11 +112,11 @@ public class User {
 		return type;
 	}
 
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 
