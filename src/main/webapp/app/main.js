@@ -158,7 +158,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 2;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 15rem;\r\n    height: 10rem;\r\n    background-color: transparent;\r\n}"
+module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 2;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 15rem;\r\n    height: 10rem;\r\n    \r\n}"
 
 /***/ }),
 
@@ -169,7 +169,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form>\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n      <input type=\"submit\" (click)=\"login()\">\r\n    </form>      \r\n</div>\r\n\r\n"
+module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\">\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n      <input type=\"submit\" (click)=\"login()\">\r\n  </form>      \r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -252,7 +252,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\">Fitness!!!11!</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/register' ? 'disabled btn disabled' : ''\" href=\"register\">#Placeholder</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/PLACEHOLDERROUTE' ? 'disabled btn disabled' : ''\" href=\"#\">#Placeholder</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/PLACEHOLDERROUTE' ? 'disabled btn disabled' : ''\" href=\"#\">#Placeholder</a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav navbar-right\">\n      <li><a href=\"login\"><span class=\"glyphicon glyphicon-log-in\"></span>Logout</a></li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <a class=\"navbar-brand\">Fitness!!!11!</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/register' ? 'disabled btn disabled' : ''\" href=\"register\">#Placeholder</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/PLACEHOLDERROUTE' ? 'disabled btn disabled' : ''\" href=\"#\">#Placeholder</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"location.path() == '/PLACEHOLDERROUTE' ? 'disabled btn disabled' : ''\" href=\"#\">#Placeholder</a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"navbar-nav navbar-right\">\r\n      <li><a href=\"login\"><span class=\"glyphicon glyphicon-log-in\"></span>Logout</a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -307,7 +307,7 @@ var NavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 50%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 2;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 20rem;\r\n    background-color: transparent;\r\n}\r\n.blur{\r\n\tposition:absolute; /*it can be fixed too*/\r\n    height: 100%;\r\n    width: 100%;\r\n    filter: blur(7px);\r\n    -webkit-filter: blur(7px);\r\n}"
+module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 46rem;\r\n    background-color: rgba(254,254,254,.5); \r\n}\r\n.blur{\r\n\tposition:absolute; /*it can be fixed too*/\r\n    height: 100%;\r\n    width: 100%;\r\n    filter: blur(7px);\r\n    -webkit-filter: blur(7px);\r\n}"
 
 /***/ }),
 
@@ -318,7 +318,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\">\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n    \r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n    \r\n    <label for=\"address\">address</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\"><br>\r\n  \r\n    <label for=\"firstName\">First Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\"><br>\r\n    <label for=\"lastName\">Last Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\"><br>\r\n  \r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n  \r\n    <label for=\"birthdate\">Date of Birth</label><br>\r\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\"><br>\r\n    \r\n    <label for=\"height\">Height</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\"><br>\r\n    <label for=\"weight\">Weight</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\">\r\n    \r\n    <input type=\"submit\" (click)=\"register()\">\r\n    \r\n  </form>\r\n  <div class=\"blur\"></div>  \r\n</div>\r\n"
+module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\">\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n    \r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n    \r\n    <label for=\"address\">address</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\"><br>\r\n  \r\n    <label for=\"firstName\">First Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\"><br>\r\n    <label for=\"lastName\">Last Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\"><br>\r\n  \r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n  \r\n    <label for=\"birthdate\">Date of Birth</label><br>\r\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\"><br>\r\n    \r\n    <label for=\"height\">Height</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\"><br>\r\n    <label for=\"weight\">Weight</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\"><br>\r\n    <br>\r\n    <input type=\"submit\" value=\"register\" (click)=\"register()\">\r\n    \r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -465,7 +465,7 @@ var httpOptions = {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/register';
+        this.url = 'http://localhost:8080/FitApp/user';
     }
     RegisterService.prototype.register = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -544,7 +544,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

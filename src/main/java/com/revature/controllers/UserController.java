@@ -38,7 +38,8 @@ public class UserController {
 		return userServ.get(Integer.parseInt(id));
 	}
 	@RequestMapping(value="/user/{id}", method=RequestMethod.PUT, consumes= {"application/json"})
-	public @ResponseBody void doPut(@PathVariable("id") String id, @RequestBody User user) {
+	public @ResponseBody void doPut(@PathVariable("id") Integer id, @RequestBody User user) {
+		user.setId(id);
 		userServ.update(user);
 	}
 }

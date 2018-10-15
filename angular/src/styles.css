@@ -17,7 +17,7 @@ form{
     z-index: 100;
 }
 body {
-    background-image: url(/src/assets/background.jpg);
+    background-image: url(src/assets/background.jpg);
 }
 .card{
     font-size: 20px;

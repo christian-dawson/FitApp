@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class RegisterService {
 
-    readonly url = 'http://localhost:8080/FitApp/register';
+    readonly url = 'http://localhost:8080/FitApp/user';
 
     constructor(private http: HttpClient) {}
 
