@@ -10,20 +10,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddGoalsComponent } from './add-goals/add-goals.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'home', component: DashboardComponent }
+  { path: 'register', component: RegisterComponent},
+  { path: 'home', component: DashboardComponent},
+  { path: 'addGoals', component: AddGoalsComponent }
 ];
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddGoalsComponent
   ],
   imports: [
     BrowserModule,

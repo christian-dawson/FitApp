@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../types/user';
 import { RegisterService } from '../services/register.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -37,10 +38,14 @@ export class RegisterComponent implements OnInit {
       height: this.height
     };
     this.registerService.register(this.user)
-  .subscribe();
+      .subscribe(data => {
+        this.user = data;
+        this.router.navigateByUrl('register');
+      }
+      );
   }
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {
   }

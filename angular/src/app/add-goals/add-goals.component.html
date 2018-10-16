@@ -1,0 +1,11 @@
+<div class="card" id="cardId">
+  <form class="register">
+    <label for="targetWeight">Target Weight: </label><br>
+    <input type="number" [(ngModel)]="targetWeight" name="targetWeight"><br>
+
+    <label for="type">Additional Goals</label><br>
+    <textarea cols="22" rows="3" [(ngModel)]="type" name="type"></textarea><br>
+    <br>
+    <button (click)="postGoal()">Add Goals</button>
+  </form>
+</div>

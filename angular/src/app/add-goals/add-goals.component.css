@@ -1,0 +1,22 @@
+#cardId{
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    top: 80%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 0;
+    /* transform: translateY(-50%); */
+    text-align: center;
+    width: 18rem;
+    height: 17rem;
+    background-color: rgba(254,254,254,.5); 
+}
+.blur{
+	position:absolute; /*it can be fixed too*/
+    height: 100%;
+    width: 100%;
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+}
