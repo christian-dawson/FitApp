@@ -97,6 +97,5 @@ public class Diet {
 		return "Diet [dietId=" + dietId + ", calories=" + calories + ", protein=" + protein + ", fat=" + fat
 				+ ", carbohydrates=" + carbohydrates + ", sugar=" + sugar + ", fiber=" + fiber + ", details=" + details
 				+ "]";
-	}
-	
+	}	
 }

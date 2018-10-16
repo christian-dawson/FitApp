@@ -185,6 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,11 +197,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(loginService) {
+    function LoginComponent(loginService, router) {
         this.loginService = loginService;
+        this.router = router;
     }
     LoginComponent.prototype.login = function () {
+        var _this = this;
         this.user = {
             username: this.username,
             password: this.password,
@@ -214,7 +218,11 @@ var LoginComponent = /** @class */ (function () {
             height: this.height
         };
         this.loginService.login(this.user)
-            .subscribe();
+            .subscribe(function (data) {
+            _this.user = data;
+            console.log(_this.user);
+            _this.router.navigateByUrl('register');
+        });
     };
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -225,7 +233,7 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")],
             providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]]
         }),
-        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]])
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());

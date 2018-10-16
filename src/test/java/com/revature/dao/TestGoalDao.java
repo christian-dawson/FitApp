@@ -25,7 +25,7 @@ public class TestGoalDao {
 
 	private GoalDaoImpl dao;
 	private Goal testGoal;
-	private List<FitnessPlan> testGoals;
+	private List<Goal> testGoals;
 	
 	@Mock
 	private Session sess;
@@ -39,8 +39,8 @@ public class TestGoalDao {
 		MockitoAnnotations.initMocks(this);
 		testGoals = new ArrayList<>();
 		for(int i = 0; i < 10; i++) {
-			FitnessPlan toAdd = new FitnessPlan();
-			toAdd.setPlanId(i);
+			Goal toAdd = new Goal();
+			toAdd.setGoalId(i);
 			testGoals.add(toAdd);
 		}
 		int goalId = 1;
@@ -51,8 +51,8 @@ public class TestGoalDao {
 		
 	    dao = new GoalDaoImpl();
 		dao.setSession(sess);
-		(Mockito.doReturn(testGoal).when(sess)).get(FitnessPlan.class, testGoal.getGoalId());
-		(Mockito.doReturn(query).when(sess)).createQuery("FROM Goal");
+		(Mockito.doReturn(testGoal).when(sess)).get(Goal.class, testGoal.getGoalId());
+		(Mockito.doReturn(query).when(sess)).createQuery("from Goal");
 		(Mockito.doReturn(testGoals).when(query)).getResultList();
 		(Mockito.doReturn(tran).when(sess)).beginTransaction();
 	}

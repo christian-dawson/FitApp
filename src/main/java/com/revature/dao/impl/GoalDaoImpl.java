@@ -3,44 +3,81 @@ package com.revature.dao.impl;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.springframework.stereotype.Service;
 
 import com.revature.dao.model.GoalDaoModel;
+import com.revature.database.SessionUtil;
 import com.revature.pojos.Goal;
 
+@Service
 public class GoalDaoImpl implements GoalDaoModel {
+	
+	Session session;
+	
+	public GoalDaoImpl() {
+		session = SessionUtil.getSession();
+	}
 
 	@Override
 	public void create(Goal goal) {
-		// TODO Auto-generated method stub
-
+		createSession();
+		Transaction tran = session.beginTransaction();
+		session.save(goal);
+		tran.commit();
+		closeSession();
 	}
 
 	@Override
 	public Goal read(int ID) {
-		// TODO Auto-generated method stub
-		return null;
+		createSession();
+		Goal toReturn = session.get(Goal.class, ID);
+		closeSession();
+		return toReturn;
 	}
 
 	@Override
 	public List<Goal> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		createSession();
+		Query query = session.createQuery("from Goal");
+		List<Goal> toReturn = query.getResultList();
+		closeSession();
+		return toReturn;
 	}
 
 	@Override
 	public void update(Goal goal) {
-		// TODO Auto-generated method stub
-
+		createSession();
+		Transaction tran = session.beginTransaction();
+		session.update(goal);
+		tran.commit();
+		closeSession();
 	}
 
 	@Override
 	public void delete(Goal goal) {
-		// TODO Auto-generated method stub
+		createSession();
+		Transaction tran = session.beginTransaction();
+		session.delete(goal);
+		tran.commit();
+		closeSession();
 	}
 
-	public void setSession(Session sess) {
-		// TODO Auto-generated method stub
-		
+	//Test purposes only
+	public void setSession(Session session) {
+		this.session = session;
 	}
-
+	
+	
+	//managing session from within the dao
+	private void createSession() {
+		if(session == null) {
+			session = SessionUtil.getSession();
+		}
+	}
+	private void closeSession() {
+		session.close();
+		session = null;
+	}
 }

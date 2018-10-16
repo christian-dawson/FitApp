@@ -3,8 +3,12 @@ package com.revature.dao;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -44,7 +48,12 @@ public class TestUserDao {
 		}
 		testUser = new User();
 	    testUser.setAddress("a;lskdfja fa sklfdja;sklfd");
-	    testUser.setBirthdate("1992-04-20");
+	    try {
+			testUser.setBirthdate((new SimpleDateFormat()).parse("2018-10-15"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    testUser.setFirstName("a");
 	    testUser.setLastName("laskdfj");
 	    testUser.setHeight(1290);

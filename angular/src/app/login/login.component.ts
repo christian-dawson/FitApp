@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../types/user';
 import { LoginService } from '../services/login.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -37,10 +38,15 @@ export class LoginComponent implements OnInit {
       height: this.height
     };
     this.loginService.login(this.user)
-  .subscribe();
+  .subscribe(data => {
+    this.user = data;
+    console.log(this.user);
+    this.router.navigateByUrl('register');
+  }
+);
   }
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }

@@ -25,6 +25,7 @@
   
   <!-- Mapping -->
   <mapping class="com.revature.pojos.User"/>
+  <mapping class="com.revature.pojos.Goal"/>
   <!-- <mapping class="com.revature.pojos.Diet"/>
   <mapping class="com.revature.pojos.Plan"/> -->
   <!-- Specify caching provider -->
