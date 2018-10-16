@@ -24,8 +24,12 @@ public class GoalDaoImpl implements GoalDaoModel {
 	public void create(Goal goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.save(goal);
-		tran.commit();
+		try {
+			session.save(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
@@ -50,8 +54,12 @@ public class GoalDaoImpl implements GoalDaoModel {
 	public void update(Goal goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.update(goal);
-		tran.commit();
+		try {
+			session.update(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
@@ -59,8 +67,12 @@ public class GoalDaoImpl implements GoalDaoModel {
 	public void delete(Goal goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.delete(goal);
-		tran.commit();
+		try {
+			session.delete(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 

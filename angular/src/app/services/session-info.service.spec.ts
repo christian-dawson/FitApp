@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GoalService } from './goal.service';
+import { SessionInfoService } from './session-info.service';
 
-describe('GoalService', () => {
+describe('SessionInfoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GoalService = TestBed.get(GoalService);
+    const service: SessionInfoService = TestBed.get(SessionInfoService);
     expect(service).toBeTruthy();
   });
 });

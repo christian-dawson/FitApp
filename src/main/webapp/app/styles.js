@@ -48,7 +48,7 @@ module.exports = "/*!\n * Bootstrap v4.1.3 (https://getbootstrap.com/)\n * Copyr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\n.background{\r\n    height: 100%;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    z-index: 10;\r\n}\r\nh1{\r\n    color: white !important;\r\n}\r\nform{\r\n    z-index: 100;\r\n}\r\nbody {\r\n    background-image: url('background.jpg');\r\n}\r\n.card{\r\n    font-size: 20px;\r\n    background-color: rgba(254,254,254,.5); \r\n}\r\n\r\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\n.background{\r\n    height: 100%;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    z-index: 10;\r\n}\r\nh1{\r\n    color: white !important;\r\n}\r\nform{\r\n    z-index: 100;\r\n}\r\nbody {\r\n    background-image: url('background.jpg');\r\n}\r\n.card{\r\n    font-size: 20px;\r\n    background-color: rgba(254,254,254,.5); \r\n}\r\n"
 
 /***/ }),
 

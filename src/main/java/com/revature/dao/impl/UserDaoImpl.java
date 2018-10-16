@@ -1,11 +1,15 @@
 package com.revature.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
+
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.postgresql.util.PSQLException;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.model.UserDaoModel;
@@ -20,9 +24,14 @@ public class UserDaoImpl implements UserDaoModel {
 	public void create(User user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.save(user);
-		tran.commit();
-		closeSession();
+		try {
+			session.save(user);
+			tran.commit();
+			closeSession();
+		}
+		catch(RollbackException e) {
+			tran.rollback();
+		}
 	}
 
 	public User read(int ID) {
@@ -44,16 +53,25 @@ public class UserDaoImpl implements UserDaoModel {
 	public void update(User user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.update(user);
-		tran.commit();
+		try {
+			session.update(user);
+			tran.commit();
+		}
+		catch(RollbackException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 	
 	public void delete(User user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.delete(user);
-		tran.commit();
+		try {
+			session.delete(user);
+			tran.commit();
+		}catch(RollbackException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 	

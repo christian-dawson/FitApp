@@ -11,12 +11,4 @@
     text-align: center;
     width: 18rem;
     height: 46rem;
-    background-color: rgba(254,254,254,.5); 
-}
-.blur{
-	position:absolute; /*it can be fixed too*/
-    height: 100%;
-    width: 100%;
-    filter: blur(7px);
-    -webkit-filter: blur(7px);
 }

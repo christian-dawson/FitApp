@@ -29,9 +29,11 @@ public class UserController {
 		return userServ.getAll();
 	}
 	@RequestMapping(value="/user", method=RequestMethod.POST, consumes= {"application/json"})
-	public @ResponseBody void doPost(@RequestBody User user) {
+	public @ResponseBody void doPost(@RequestBody User user, HttpSession sess) {
 		System.out.println("user.post called with user: " + user);
 		userServ.add(user);
+		sess.setAttribute("user", user);
+		
 	}
 	@RequestMapping(value="/user/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody User doGet(@PathVariable("id") String id) {
@@ -41,5 +43,11 @@ public class UserController {
 	public @ResponseBody void doPut(@PathVariable("id") Integer id, @RequestBody User user) {
 		user.setId(id);
 		userServ.update(user);
+	}
+	@RequestMapping(value="/session", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody User getSessionUser(HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		System.out.println("userId: " + user.getId());
+		return user;
 	}
 }

@@ -10,17 +10,20 @@ const httpOptions = {
   })
 };
 
+const userId = 10;
+
 @Injectable({
   providedIn: 'root'
 })
 export class GoalService {
+  userId: number;
   goal: Goal;
-  readonly url = 'http://localhost:8080/FitApp/' + this.goal.userId + 'goal/';
+  readonly posturl = 'http://localhost:8080/FitApp/' + userId + 'goal/';
 
   constructor(private http: HttpClient) { }
 
   postGoal(goal: Goal) {
       this.goal = goal;
-      return this.http.post<Goal>(this.url, goal, httpOptions);
+      return this.http.post<Goal>(this.posturl, goal, httpOptions);
   }
 }

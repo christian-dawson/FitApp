@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from '../types/goal';
 import { GoalService } from '../services/goal.service';
+import { SessionInfoService } from '../services/session-info.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,9 +28,19 @@ export class AddGoalsComponent implements OnInit {
      }
     );
   }
-  constructor(private goalService: GoalService, private router: Router) { }
+  constructor(private sess: SessionInfoService, private goalService: GoalService, private router: Router) { }
 
   ngOnInit() {
+    console.log(this.sess);
+    this.sess.getLoggedInUser().subscribe(data => {
+      if (!data.id) {
+        this.router.navigateByUrl('login');
+      } else {
+        this.userId = data.id;
+        console.log(data.id);
+      }
+    });
+    console.log('onInitCalled()');
   }
 
 }
