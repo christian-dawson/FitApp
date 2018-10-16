@@ -6,9 +6,8 @@
     top: 80%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    z-index: 0;
     /* transform: translateY(-50%); */
     text-align: center;
-    width: 18rem;
-    height: 46rem;
+    width: 16%;
+    height: 74%;
 }

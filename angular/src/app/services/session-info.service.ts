@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SessionInfoService {
 
-  readonly url: 'http://localhost:8080/FitApp/session';
+  readonly url = 'http://localhost:8080/FitApp/session';
 
   constructor(private http: HttpClient) {}
 

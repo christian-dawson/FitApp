@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 17rem;\r\n    background-color: rgba(254,254,254,.5); \r\n}\r\n.blur{\r\n\tposition:absolute; /*it can be fixed too*/\r\n    height: 100%;\r\n    width: 100%;\r\n    filter: blur(7px);\r\n    -webkit-filter: blur(7px);\r\n}\r\n"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 35%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 17%;\r\n    height: 30%;\r\n}\r\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\">\r\n    <label for=\"targetWeight\">Target Weight: </label><br>\r\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\r\n\r\n    <label for=\"type\">Additional Goals</label><br>\r\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\r\n    <br>\r\n    <input type=\"submit\" (click)=\"postGoal()\" value=\"Add Goal\"/>\r\n  </form>\r\n</div>"
+module.exports = "<div class=\"card\">\r\n  <form class=\"register\">\r\n    <label for=\"targetWeight\">Target Weight: </label><br>\r\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\r\n\r\n    <label for=\"type\">Additional Goals</label><br>\r\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\r\n    <br>\r\n    <input type=\"submit\" (click)=\"postGoal()\" value=\"Add Goal\"/>\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -80,30 +80,25 @@ var AddGoalsComponent = /** @class */ (function () {
     }
     AddGoalsComponent.prototype.postGoal = function () {
         var _this = this;
-        this.goal = {
-            goalId: this.goalId,
-            userId: this.userId,
-            targetWeight: this.targetWeight,
-            type: this.type
-        };
-        this.goalService.postGoal(this.goal).subscribe(function (data) {
-            _this.router.navigateByUrl('home');
-        });
-    };
-    AddGoalsComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log(this.sess);
         this.sess.getLoggedInUser().subscribe(function (data) {
             if (!data) {
                 _this.router.navigateByUrl('login');
             }
             else {
-                _this.userId = data.id;
                 console.log(data.id);
+                _this.goal = {
+                    goalId: _this.goalId,
+                    userId: data.id,
+                    targetWeight: _this.targetWeight,
+                    type: _this.type
+                };
+                _this.goalService.postGoal(_this.goal).subscribe(function (doSomething) {
+                    _this.router.navigateByUrl('home');
+                });
             }
         });
-        console.log('onInitCalled()');
     };
+    AddGoalsComponent.prototype.ngOnInit = function () { };
     AddGoalsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-add-goals',
@@ -332,7 +327,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 2;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 15rem;\r\n    height: 10rem;\r\n    \r\n}"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 12rem;\r\n}"
 
 /***/ }),
 
@@ -343,7 +338,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\" (submit)=\"login()\">\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n      <input type=\"submit\">\r\n  </form>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"card\">\r\n  <form class=\"register\" (submit)=\"login()\">\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n      <input type=\"submit\">\r\n  </form>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -489,7 +484,7 @@ var NavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 46rem;\r\n}"
+module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 16%;\r\n    height: 74%;\r\n}"
 
 /***/ }),
 
@@ -614,7 +609,7 @@ var userId = 10;
 var GoalService = /** @class */ (function () {
     function GoalService(http) {
         this.http = http;
-        this.posturl = 'http://localhost:8080/FitApp/' + userId + 'goal/';
+        this.posturl = 'http://localhost:8080/FitApp/user/' + userId + '/goal/';
     }
     GoalService.prototype.postGoal = function (goal) {
         this.goal = goal;
@@ -765,6 +760,7 @@ var httpOptions = {
 var SessionInfoService = /** @class */ (function () {
     function SessionInfoService(http) {
         this.http = http;
+        this.url = 'http://localhost:8080/FitApp/session';
     }
     SessionInfoService.prototype.getLoggedInUser = function () {
         return this.http.get(this.url);

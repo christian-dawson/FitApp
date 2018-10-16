@@ -18,7 +18,7 @@ const userId = 10;
 export class GoalService {
   userId: number;
   goal: Goal;
-  readonly posturl = 'http://localhost:8080/FitApp/' + userId + 'goal/';
+  readonly posturl = 'http://localhost:8080/FitApp/user/' + userId + '/goal/';
 
   constructor(private http: HttpClient) { }
 

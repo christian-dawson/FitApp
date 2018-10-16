@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
-import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddGoalsComponent } from './add-goals/add-goals.component';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,9 +24,10 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent,
     DashboardComponent,
-    AddGoalsComponent
+    AddGoalsComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

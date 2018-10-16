@@ -47,7 +47,6 @@ public class UserController {
 	@RequestMapping(value="/session", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody User getSessionUser(HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		System.out.println("userId: " + user.getId());
 		return user;
 	}
 }
