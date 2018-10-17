@@ -14,10 +14,10 @@ import com.revature.servicess.model.UserServiceModel;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private UserServiceModel userServ;
-	
+
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes={"application/json"})
 	public @ResponseBody User login(@RequestBody User user, HttpSession session) {
 		user = userServ.authenticate(user);

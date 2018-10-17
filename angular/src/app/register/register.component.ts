@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.register(this.user)
       .subscribe(data => {
         this.user = data;
-        this.router.navigateByUrl('addGoals');
+        this.router.navigateByUrl('goal');
       }
       );
   }

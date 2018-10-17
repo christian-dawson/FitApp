@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { Location } from '@angular/common';
 
 
-let message: string;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,6 +10,7 @@ let message: string;
 })
 export class HeaderComponent implements OnInit, DoCheck {
   location: Location;
+  message: string;
   constructor(location: Location) {
     this.location = location;
   }
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    message = makeMessage(this.location);
+    this.message = makeMessage(this.location);
   }
 
 }
