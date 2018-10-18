@@ -12,6 +12,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddGoalsComponent } from './add-goals/add-goals.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { AlertComponent } from './alert/alert.component';
+import { SearchTrainersComponent } from './search-trainers/search-trainers.component';
+import { TrainerPipePipe } from './trainer-pipe.pipe';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
     DashboardComponent,
     AddGoalsComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    AlertComponent,
+    SearchTrainersComponent,
+    TrainerPipePipe
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,6 @@ import javax.persistence.RollbackException;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.postgresql.util.PSQLException;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.model.UserDaoModel;

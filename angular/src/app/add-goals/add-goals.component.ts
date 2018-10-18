@@ -36,6 +36,13 @@ export class AddGoalsComponent implements OnInit {
   }
   constructor(private sess: SessionInfoService, private goalService: GoalService, private router: Router) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    console.log('ngOnInit in add-goals called()');
+    this.sess.getLoggedInUser().subscribe(data => {
+      console.log(data);
+      if (!data) {
+        this.router.navigateByUrl('login');
+      }
+   });
+  }
 }

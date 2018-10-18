@@ -25,5 +25,4 @@ export class UserService {
     postUser(user: User) {
         return this.http.post<User>(this.url, user, httpOptions);
     }
-
 }

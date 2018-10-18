@@ -1,6 +1,8 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../types/user';
+import { Alert } from '../types/alert';
 import { LoginService } from '../services/login.service';
+import { AlertService } from '../services/alert.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,6 +13,8 @@ import { Router } from '@angular/router';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
+
+  alert: Alert = new Alert('', '', false);
 
   username: string;
   password: string;
@@ -39,9 +43,15 @@ export class LoginComponent implements OnInit {
     };
     this.loginService.login(this.user)
   .subscribe(data => {
-    this.user = data;
-    console.log(this.user);
-    this.router.navigateByUrl('register');
+    if (!data) {
+      this.alert.message = 'Invalid User Credentials';
+      this.alert.type = 'danger';
+      this.alert.display = true;
+      AlertService.setAlert(this.alert);
+      this.router.navigateByUrl('login');
+    } else {
+      this.router.navigateByUrl('home');
+    }
   }
 );
   }

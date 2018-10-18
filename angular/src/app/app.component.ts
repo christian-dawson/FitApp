@@ -11,6 +11,5 @@ export class AppComponent {
   constructor(location: Location) {
     this.location = location;
   }
-  title = 'Fit App';
 }
 
