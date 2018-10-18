@@ -3,6 +3,7 @@ import { User } from '../types/user';
 import { RegisterService } from '../services/register.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Goal } from '../types/goal';
 
 const maxYear = (new Date).getFullYear() - 18;
 const minYear = (new Date).getFullYear() - 100;
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
   weight: number;
   height: number;
   user: User;
+  goal: Goal;
 
   register() {
     this.user = {
@@ -44,7 +46,8 @@ export class RegisterComponent implements OnInit {
       type: this.type,
       birthdate: this.birthdate,
       weight: this.weight,
-      height: this.height
+      height: this.height,
+      goal: this.goal
     };
     console.log(this.user.type);
     this.registerService.register(this.user)

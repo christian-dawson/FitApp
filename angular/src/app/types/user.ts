@@ -1,3 +1,5 @@
+import { Goal } from './goal';
+
 export class User {
     username: string;
     password: string;
@@ -9,4 +11,5 @@ export class User {
     birthdate: string;
     weight: number;
     height: number;
+    goal: Goal;
 }

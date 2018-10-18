@@ -141,7 +141,7 @@ module.exports = "ngb-alert{\r\n    z-index:2;\r\n}\r\n\r\n.hidden {\r\n    disp
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  <ngb-alert type={{alert.type}} [dismissible]=\"false\" [ngClass]=\"alert.display ? '' : 'hidden'\">{{alert.message}}</ngb-alert>\n</p>\n"
+module.exports = "<p>\r\n  <ngb-alert type={{alert.type}} [dismissible]=\"false\" [ngClass]=\"alert.display ? '' : 'hidden'\">{{alert.message}}</ngb-alert>\r\n</p>\r\n"
 
 /***/ }),
 
@@ -279,6 +279,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alert_alert_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./alert/alert.component */ "./src/app/alert/alert.component.ts");
 /* harmony import */ var _search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./search-trainers/search-trainers.component */ "./src/app/search-trainers/search-trainers.component.ts");
 /* harmony import */ var _trainer_pipe_pipe__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./trainer-pipe.pipe */ "./src/app/trainer-pipe.pipe.ts");
+/* harmony import */ var _directives_insert_component_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/insert-component.directive */ "./src/app/directives/insert-component.directive.ts");
+/* harmony import */ var _trainee_pipe_pipe__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./trainee-pipe.pipe */ "./src/app/trainee-pipe.pipe.ts");
+/* harmony import */ var _search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./search-trainees/search-trainees.component */ "./src/app/search-trainees/search-trainees.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -301,11 +304,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var routes = [
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_8__["RegisterComponent"] },
     { path: 'home', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["DashboardComponent"] },
-    { path: 'goal', component: _add_goals_add_goals_component__WEBPACK_IMPORTED_MODULE_10__["AddGoalsComponent"] }
+    { path: 'goal', component: _add_goals_add_goals_component__WEBPACK_IMPORTED_MODULE_10__["AddGoalsComponent"] },
+    { path: 'searchTrainee', component: _search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_18__["SearchTraineesComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -322,7 +329,10 @@ var AppModule = /** @class */ (function () {
                 _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
                 _alert_alert_component__WEBPACK_IMPORTED_MODULE_13__["AlertComponent"],
                 _search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_14__["SearchTrainersComponent"],
-                _trainer_pipe_pipe__WEBPACK_IMPORTED_MODULE_15__["TrainerPipePipe"]
+                _search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_18__["SearchTraineesComponent"],
+                _trainer_pipe_pipe__WEBPACK_IMPORTED_MODULE_15__["TrainerPipePipe"],
+                _directives_insert_component_directive__WEBPACK_IMPORTED_MODULE_16__["InsertComponentDirective"],
+                _trainee_pipe_pipe__WEBPACK_IMPORTED_MODULE_17__["TraineePipePipe"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -333,7 +343,8 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+            entryComponents: [_search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_14__["SearchTrainersComponent"], _search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_18__["SearchTraineesComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -361,7 +372,7 @@ module.exports = ".dashBody{\r\n  height: 100vh;\r\n}\r\n\r\n#mainDashContainer{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <app-sidebar></app-sidebar>\r\n\r\n  <main class=\"col-lg-8 offset-sm-3 col-md-10 offset-md-2 pt-3\" id=\"dashBody\">\r\n    <div class=\"container\" id=\"topDashContainer\">\r\n      <app-header></app-header>\r\n    </div>\r\n    <div class=\"container\" id=\"mainDashContainer\">\r\n        <app-search-trainers></app-search-trainers>\r\n    </div>\r\n  </main>\r\n    "
+module.exports = "  <app-sidebar></app-sidebar>\r\n\r\n  <main class=\"col-lg-8 offset-sm-3 col-md-10 offset-md-2 pt-3\" id=\"dashBody\">\r\n    <div class=\"container\" id=\"topDashContainer\">\r\n      <app-header></app-header>\r\n    </div>\r\n    <div class=\"container\" id=\"mainDashContainer\">\r\n        <ng-template #dynamic></ng-template>\r\n    </div>\r\n  </main>\r\n    "
 
 /***/ }),
 
@@ -376,6 +387,7 @@ module.exports = "  <app-sidebar></app-sidebar>\r\n\r\n  <main class=\"col-lg-8 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_dynamic_component_dashboard_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/dynamic-component-dashboard.service */ "./src/app/services/dynamic-component-dashboard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -386,18 +398,31 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(injectorService) {
+        this.injectorService = injectorService;
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    DashboardComponent.prototype.displaySearchTrainersComponent = function () {
+        this.injectorService.addSearchTrainersComponent();
     };
+    DashboardComponent.prototype.ngOnInit = function () {
+        this.injectorService.setRootViewContainerRef(this.viewContainerRef);
+        this.injectorService.addSearchTrainersComponent();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('dynamic', {
+            read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]
+        }),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"])
+    ], DashboardComponent.prototype, "viewContainerRef", void 0);
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_dynamic_component_dashboard_service__WEBPACK_IMPORTED_MODULE_1__["DynamicComponentDashboardService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -424,7 +449,7 @@ module.exports = ".sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    botto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Request Plan</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Edit Goals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Search Trainers</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Edit Account Information</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" (click)=\"logout()\" href=\"login\">Logout</a>\n    </li>\n  </ul>\n</nav>"
+module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link active\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Request Plan</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"goal\">Edit Goals</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Search Trainers</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Edit Account Information</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" (click)=\"logout()\" href=\"login\">Logout</a>\r\n    </li>\r\n  </ul>\r\n</nav>"
 
 /***/ }),
 
@@ -477,6 +502,44 @@ var SidebarComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/directives/insert-component.directive.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/directives/insert-component.directive.ts ***!
+  \**********************************************************/
+/*! exports provided: InsertComponentDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InsertComponentDirective", function() { return InsertComponentDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InsertComponentDirective = /** @class */ (function () {
+    function InsertComponentDirective(viewContainerRef) {
+        this.viewContainerRef = viewContainerRef;
+    }
+    InsertComponentDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[appInsertComponent]'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"]])
+    ], InsertComponentDirective);
+    return InsertComponentDirective;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/header/header.component.css":
 /*!*********************************************!*\
   !*** ./src/app/header/header.component.css ***!
@@ -495,7 +558,7 @@ module.exports = "h1{\r\n    margin: 0 auto;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  {{ message }}\n</h1>"
+module.exports = "<h1>\r\n  {{ message }}\r\n</h1>"
 
 /***/ }),
 
@@ -636,7 +699,8 @@ var LoginComponent = /** @class */ (function () {
             type: this.type,
             birthdate: this.birthdate,
             weight: this.weight,
-            height: this.height
+            height: this.height,
+            goal: this.goal
         };
         this.loginService.login(this.user)
             .subscribe(function (data) {
@@ -742,7 +806,8 @@ var RegisterComponent = /** @class */ (function () {
             type: this.type,
             birthdate: this.birthdate,
             weight: this.weight,
-            height: this.height
+            height: this.height,
+            goal: this.goal
         };
         console.log(this.user.type);
         this.registerService.register(this.user)
@@ -769,6 +834,76 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/search-trainees/search-trainees.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/search-trainees/search-trainees.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "table {\r\n    width: 100vh;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/search-trainees/search-trainees.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/search-trainees/search-trainees.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<label>Search Trainees</label>\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\n<table>\n  <tr>\n    <th sytle=\"width: 25%\">\n      Person Requesting\n    </th>\n    <th sytle=\"width: 10%\">\n      Trainee Weight\n    </th>\n    <th sytle=\"width: 10%\">\n      Trainee Target Weight\n    </th>\n    <th style=\"width: 35%\">\n      Trainee Goals\n    </th>\n    <th style=\"width: 10%\">\n      Accept Request\n    </th>\n  </tr>\n  <tr *ngFor=\"let u of users | traineePipe : searchText\">\n    <td>\n      {{u.firstName}} {{u.lastName}}\n    </td>\n    <td>\n      {{ u.weight }}\n    </td>\n    <td>\n      {{ (u.goal) ? u.goal.targetWeight : 'none' }}\n    </td>\n    <td>\n      {{ (u.goal) ? u.goal.type : 'none' }}\n    </td>\n    <td>\n      <button (click)=\"acceptTraining(u)\">Accept</button>\n    </td>\n  </tr>\n</table>\n"
+
+/***/ }),
+
+/***/ "./src/app/search-trainees/search-trainees.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/search-trainees/search-trainees.component.ts ***!
+  \**************************************************************/
+/*! exports provided: SearchTraineesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchTraineesComponent", function() { return SearchTraineesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchTraineesComponent = /** @class */ (function () {
+    function SearchTraineesComponent(userService) {
+        this.userService = userService;
+    }
+    SearchTraineesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getUsers().subscribe(function (data) {
+            _this.users = data;
+        });
+    };
+    SearchTraineesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-search-trainees',
+            template: __webpack_require__(/*! ./search-trainees.component.html */ "./src/app/search-trainees/search-trainees.component.html"),
+            styles: [__webpack_require__(/*! ./search-trainees.component.css */ "./src/app/search-trainees/search-trainees.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+    ], SearchTraineesComponent);
+    return SearchTraineesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/search-trainers/search-trainers.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/search-trainers/search-trainers.component.css ***!
@@ -787,7 +922,7 @@ module.exports = "table {\r\n    width: 100vh;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<label>Search Trainers</label>\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\n<table>\n\n  <tr>\n    <th sytle=\"width: 25%\">\n      Trainer\n    </th>\n    <th sytle=\"width: 65%\">\n      Trainer skills\n    </th>\n    <th sytle=\"width: 10%\">\n      Request Services\n    </th>\n  </tr>\n  <tr *ngFor=\"let u of users | trainerPipe : searchText\">\n    <td>\n      {{u.firstName}} {{u.lastName}}\n    </td>\n    <td>\n      Weight Training\n    </td>\n    <td>\n      <button (click)=\"requestTraining(u)\">Train</button>\n    </td>\n  </tr>\n</table>"
+module.exports = "<label>Search Trainers</label>\r\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\r\n<table>\r\n\r\n  <tr>\r\n    <th sytle=\"width: 25%\">\r\n      Trainer\r\n    </th>\r\n    <th sytle=\"width: 65%\">\r\n      Trainer skills\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Request Services\r\n    </th>\r\n  </tr>\r\n  <tr *ngFor=\"let u of users | trainerPipe : searchText\">\r\n    <td>\r\n      {{u.firstName}} {{u.lastName}}\r\n    </td>\r\n    <td>\r\n      Weight Training\r\n    </td>\r\n    <td>\r\n      <button (click)=\"requestTraining(u)\">Train</button>\r\n    </td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -879,6 +1014,58 @@ var AlertService = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], AlertService);
     return AlertService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/dynamic-component-dashboard.service.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/services/dynamic-component-dashboard.service.ts ***!
+  \*****************************************************************/
+/*! exports provided: DynamicComponentDashboardService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DynamicComponentDashboardService", function() { return DynamicComponentDashboardService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../search-trainers/search-trainers.component */ "./src/app/search-trainers/search-trainers.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var DynamicComponentDashboardService = /** @class */ (function () {
+    function DynamicComponentDashboardService(factoryResolver) {
+        this.factoryResolver = factoryResolver;
+    }
+    DynamicComponentDashboardService.prototype.setRootViewContainerRef = function (viewContainerRef) {
+        this.rootViewContainer = viewContainerRef;
+    };
+    DynamicComponentDashboardService.prototype.addSearchTrainersComponent = function () {
+        var factory = this.factoryResolver.resolveComponentFactory(_search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_1__["SearchTrainersComponent"]);
+        var component = factory.create(this.rootViewContainer.parentInjector);
+        this.rootViewContainer.insert(component.hostView);
+    };
+    DynamicComponentDashboardService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"])),
+        __metadata("design:paramtypes", [Object])
+    ], DynamicComponentDashboardService);
+    return DynamicComponentDashboardService;
 }());
 
 
@@ -1144,6 +1331,59 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/trainee-pipe.pipe.ts":
+/*!**************************************!*\
+  !*** ./src/app/trainee-pipe.pipe.ts ***!
+  \**************************************/
+/*! exports provided: TraineePipePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TraineePipePipe", function() { return TraineePipePipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var TraineePipePipe = /** @class */ (function () {
+    function TraineePipePipe() {
+    }
+    TraineePipePipe.prototype.transform = function (items, searchText) {
+        if (!items) {
+            return [];
+        }
+        if (!searchText) {
+            return items.filter(function (user) {
+                if (user.type === 'trainee') {
+                    return true;
+                }
+            });
+        }
+        searchText = searchText.toLowerCase();
+        return items.filter(function (it) {
+            if (it.type === 'trainee') {
+                if (it.lastName.toLowerCase().includes(searchText)) {
+                    return true;
+                }
+            }
+        });
+    };
+    TraineePipePipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'traineePipe'
+        })
+    ], TraineePipePipe);
+    return TraineePipePipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/trainer-pipe.pipe.ts":
 /*!**************************************!*\
   !*** ./src/app/trainer-pipe.pipe.ts ***!
@@ -1281,7 +1521,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

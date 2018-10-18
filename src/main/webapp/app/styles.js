@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+__webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
 
 
 /***/ })

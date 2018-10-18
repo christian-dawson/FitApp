@@ -5,6 +5,7 @@ import { LoginService } from '../services/login.service';
 import { AlertService } from '../services/alert.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Goal } from '../types/goal';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   weight: number;
   height: number;
   user: User;
+  goal: Goal;
 
   login() {
     this.user = {
@@ -39,7 +41,8 @@ export class LoginComponent implements OnInit {
       type: this.type,
       birthdate: this.birthdate,
       weight: this.weight,
-      height: this.height
+      height: this.height,
+      goal: this.goal
     };
     this.loginService.login(this.user)
   .subscribe(data => {
