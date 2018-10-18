@@ -1,5 +1,4 @@
 import { Goal } from './goal';
-
 export class User {
     username: string;
     password: string;

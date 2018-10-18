@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   height: number;
   user: User;
   goal: Goal;
-
+  
   login() {
     this.user = {
       username: this.username,
