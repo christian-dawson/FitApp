@@ -6,7 +6,7 @@ import com.revature.pojos.User;
 
 public interface UserDaoModel {
 	public void create(User user);
-	public User read(String ID);
+	public User read(int ID);
 	public List<User> readAll();
 	public void update(User user);
 	public void delete(User user);

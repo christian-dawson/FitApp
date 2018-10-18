@@ -2,12 +2,44 @@ package com.revature.pojos;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_account")
 public class User {
 	
+	@Id
+	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String username, password, address, firstName, lastName, type;
+	@Column(name="username")
+	private String username;
+	@Column(name="password")
+	private String password;
+	@Column(name="address")
+	private String address;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="type")
+	private String type;
+	@Column(name="birthdate")
 	private Date birthdate;
-	private double weight, height;
+	@Column(name="weight")
+	private double weight;
+	@Column(name="height")
+	private double height;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private Goal goal;
 	
 	public User() {
 		super();
@@ -15,7 +47,7 @@ public class User {
 	}
 	
 	public User(int id, String username, String password, String address, String firstName, String lastName,
-			String type, Date birthdate, double weight, double height) {
+			String type, Date birthdate, double weight, double height, Goal goal) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -27,6 +59,7 @@ public class User {
 		this.birthdate = birthdate;
 		this.weight = weight;
 		this.height = height;
+		this.goal = goal;
 	}
 
 	public int getId() {
@@ -109,10 +142,18 @@ public class User {
 		this.height = height;
 	}
 
+	public Goal getGoal() {
+		return goal;
+	}
+
+	public void setGoal(Goal goal) {
+		this.goal = goal;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", address=" + address
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", type=" + type + ", birthdate=" + birthdate + ", weight="
-				+ weight + ", height=" + height + "]";
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", type=" + type + ", birthdate=" + birthdate
+				+ ", weight=" + weight + ", height=" + height + ", goal=" + goal + "]";
 	}
 }

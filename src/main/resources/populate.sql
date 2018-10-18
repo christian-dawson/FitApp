@@ -1,0 +1,2 @@
+insert into user_account (username, password, first_name, last_name, address, birthdate, weight, height, "type") values ('juan', 'pedro', 'Jamiano', 'Picklehead', '102951 Juan Pedro lane', '02-19-1992', 560, 180, 'trainee');
+insert into user_account (username, password, first_name, last_n	ame, address, birthdate, weight, height, "type") values ('sally', 'susan', 'Jamasdfano', 'Pickletoe', '102951 Juan Pedro lane', '02-19-1992', 560, 180, 'trainee');
