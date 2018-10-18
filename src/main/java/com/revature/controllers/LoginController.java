@@ -24,4 +24,8 @@ public class LoginController {
 		if(user != null) session.setAttribute("user", user);
 		return user;
 	}
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public void logout(HttpSession session) {
+		session.setAttribute("user",  null);
+	}
 }

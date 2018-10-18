@@ -8,5 +8,11 @@
     /* transform: translateY(-50%); */
     text-align: center;
     width: 18rem;
-    height: 12rem;
+    height: 14rem;
+}
+a{
+    margin-left: 10%;
+}
+button{
+    margin: left;
 }

@@ -350,7 +350,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".dashBody{\r\n  height: 100vh;\r\n}\r\n\r\n#mainDashContainer{\r\n  height: 70vh;\r\n  width: 100vh; \r\n  background-color: white;\r\n}\r\n\r\n#topDashContainer{\r\n  height: 20vh;\r\n}"
+module.exports = ".dashBody{\r\n  height: 100vh;\r\n}\r\n\r\n#mainDashContainer{\r\n  height: 70vh;\r\n  width: 100vh; \r\n  background-color: white;\r\n}\r\n\r\n#topDashContainer{\r\n  height: 20vh;\r\n  align-content: center;\r\n}"
 
 /***/ }),
 
@@ -424,7 +424,7 @@ module.exports = ".sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    botto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" href=\"#\">Overview <span class=\"sr-only\">(current)</span></a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Reports</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Analytics</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Export</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Nav item</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Nav item again</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">One more nav</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Another nav item</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Nav item again</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">One more nav</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Another nav item</a>\n    </li>\n  </ul>\n</nav>"
+module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Request Plan</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Edit Goals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Search Trainers</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"#\">Edit Account Information</a>\n    </li>\n  </ul>\n\n  <ul class=\"nav nav-pills flex-column\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" (click)=\"logout()\" href=\"login\">Logout</a>\n    </li>\n  </ul>\n</nav>"
 
 /***/ }),
 
@@ -439,6 +439,7 @@ module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/login.service */ "./src/app/services/login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -449,18 +450,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var SidebarComponent = /** @class */ (function () {
-    function SidebarComponent() {
+    function SidebarComponent(ls) {
+        this.ls = ls;
     }
+    SidebarComponent.prototype.logout = function () {
+        console.log('logout called');
+        this.ls.logout().subscribe();
+    };
     SidebarComponent.prototype.ngOnInit = function () {
     };
     SidebarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-sidebar',
             template: __webpack_require__(/*! ./sidebar.component.html */ "./src/app/dashboard/sidebar/sidebar.component.html"),
-            styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/dashboard/sidebar/sidebar.component.css")]
+            styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/dashboard/sidebar/sidebar.component.css")],
+            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]])
     ], SidebarComponent);
     return SidebarComponent;
 }());
@@ -476,7 +484,7 @@ var SidebarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "h1{\r\n    margin: 0 auto;\r\n}"
 
 /***/ }),
 
@@ -566,7 +574,7 @@ function makeMessage(location) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 12rem;\r\n}"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 14rem;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}\r\nbutton{\r\n    margin: left;\r\n}"
 
 /***/ }),
 
@@ -577,7 +585,7 @@ module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"card\">\r\n  <form class=\"register\" (submit)=\"login()\">\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br>\r\n      <input type=\"submit\">\r\n  </form>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"header\">\r\n  <app-header></app-header>\r\n</div>\r\n<div class=\"card\">\r\n  <form class=\"register\" (submit)=\"login()\">\r\n      <label for=\"username\">Username</label><br>\r\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"user\"><br>\r\n      <label for=\"username\">Password</label><br>\r\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\"><br><br>\r\n      <input type=\"submit\" value=\"login\">\r\n      <a href=\"register\">Need an account?</a>\r\n  </form>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -669,7 +677,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 16%;\r\n    height: 74%;\r\n}"
+module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 16%;\r\n    height: 74%;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}"
 
 /***/ }),
 
@@ -680,7 +688,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\" ngNativeValidate (submit)=\"register()\">\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\" required><br>\r\n\r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\" required><br>\r\n\r\n    <label for=\"address\">address</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\r\n\r\n    <label for=\"firstName\">First Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\r\n    <label for=\"lastName\">Last Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\r\n\r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\" [(ngModel)]=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n\r\n    <label for=\"birthdate\">Date of Birth</label><br>\r\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\r\n\r\n    <label for=\"height\">Height (cm)</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" min=\"1\" max=\"300\"><br>\r\n    <label for=\"weight\">Weight (kg)</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" min=\"1\" max=\"9000\"><br>\r\n    <br>\r\n    <input type=\"submit\" value=\"register\">\r\n\r\n  </form>\r\n</div>"
+module.exports = "<app-header></app-header>\r\n<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\" ngNativeValidate (submit)=\"register()\">\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\" required><br>\r\n\r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\" required><br>\r\n\r\n    <label for=\"address\">address</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\r\n\r\n    <label for=\"firstName\">First Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\r\n    <label for=\"lastName\">Last Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\r\n\r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\" [(ngModel)]=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n\r\n    <label for=\"birthdate\">Date of Birth</label><br>\r\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\r\n\r\n    <label for=\"height\">Height (cm)</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" min=\"1\" max=\"300\"><br>\r\n    <label for=\"weight\">Weight (kg)</label><br>\r\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" min=\"1\" max=\"9000\"><br>\r\n    <br>\r\n    <input type=\"submit\" value=\"register\">\r\n    <a href=\"login\">Have an account?</a>\r\n\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -962,9 +970,13 @@ var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
         this.url = 'http://localhost:8080/FitApp/login';
+        this.logoutUrl = 'http://localhost:8080/FitApp/logout';
     }
     LoginService.prototype.login = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
+    };
+    LoginService.prototype.logout = function () {
+        return this.http.get(this.logoutUrl);
     };
     LoginService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

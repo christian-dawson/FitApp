@@ -18,10 +18,15 @@ export class LoginService {
 
     readonly url = 'http://localhost:8080/FitApp/login';
 
+    readonly logoutUrl = 'http://localhost:8080/FitApp/logout';
+
     constructor(private http: HttpClient) {}
 
     login(user: User): Observable<User> {
         return this.http.post<User>(this.url, JSON.stringify(user), httpOptions);
+    }
+    logout() {
+        return this.http.get(this.logoutUrl);
     }
 
 }
