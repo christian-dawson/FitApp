@@ -17,6 +17,9 @@ import { SearchTrainersComponent } from './search-trainers/search-trainers.compo
 import { TrainerPipePipe } from './trainer-pipe.pipe';
 import { InsertComponentDirective } from './directives/insert-component.directive';
 
+import { TraineePipePipe } from './trainee-pipe.pipe';
+import { SearchTraineesComponent } from './search-trainees/search-trainees.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
@@ -34,6 +37,10 @@ const routes: Routes = [
     HeaderComponent,
     AlertComponent,
     SearchTrainersComponent,
+    SearchTraineesComponent,
+    TrainerPipePipe,
+    InsertComponentDirective,
+    TraineePipePipe,
     TrainerPipePipe,
     InsertComponentDirective
   ],
@@ -49,6 +56,6 @@ const routes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SearchTrainersComponent]
+  entryComponents: [SearchTrainersComponent, SearchTraineesComponent]
 })
 export class AppModule { }
