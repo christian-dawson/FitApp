@@ -1,0 +1,14 @@
+.dashBody{
+  height: 100vh;
+}
+
+#mainDashContainer{
+  height: 70vh;
+  width: 100vh; 
+  background-color: white;
+}
+
+#topDashContainer{
+  height: 20vh;
+  align-content: center;
+}

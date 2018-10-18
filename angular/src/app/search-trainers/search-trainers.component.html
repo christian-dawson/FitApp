@@ -1,0 +1,27 @@
+<label>Search Trainers</label>
+<input type="text" readyonly class="form-control-plaintext" [(ngModel)]="searchText" placeholder="Last Name">
+<table>
+
+  <tr>
+    <th sytle="width: 25%">
+      Trainer
+    </th>
+    <th sytle="width: 65%">
+      Trainer skills
+    </th>
+    <th sytle="width: 10%">
+      Request Services
+    </th>
+  </tr>
+  <tr *ngFor="let u of users | trainerPipe : searchText">
+    <td>
+      {{u.firstName}} {{u.lastName}}
+    </td>
+    <td>
+      Weight Training
+    </td>
+    <td>
+      <button (click)="requestTraining(u)">Train</button>
+    </td>
+  </tr>
+</table>
