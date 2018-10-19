@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class SessionInfoService {
 
-  readonly url = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/session';
+  readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/session';
 
   constructor(private http: HttpClient) {}
 

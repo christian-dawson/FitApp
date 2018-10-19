@@ -18,7 +18,7 @@ const userId = 10;
 export class GoalService {
   userId: number;
   goal: Goal;
-  readonly posturl = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/user/' + userId + '/goal/';
+  readonly posturl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/user/' + userId + '/goal/';
 
   constructor(private http: HttpClient) { }
 
