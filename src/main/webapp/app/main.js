@@ -1106,7 +1106,7 @@ var userId = 10;
 var GoalService = /** @class */ (function () {
     function GoalService(http) {
         this.http = http;
-        this.posturl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/user/' + userId + '/goal/';
+        this.posturl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user/' + userId + '/goal/';
     }
     GoalService.prototype.postGoal = function (goal) {
         this.goal = goal;
@@ -1157,8 +1157,8 @@ var httpOptions = {
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
-        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/login';
-        this.logoutUrl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/logout';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/login';
+        this.logoutUrl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/logout';
     }
     LoginService.prototype.login = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
