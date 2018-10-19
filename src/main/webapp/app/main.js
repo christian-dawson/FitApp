@@ -1106,7 +1106,7 @@ var userId = 10;
 var GoalService = /** @class */ (function () {
     function GoalService(http) {
         this.http = http;
-        this.posturl = 'http://localhost:8080/FitApp/user/' + userId + '/goal/';
+        this.posturl = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/user/' + userId + '/goal/';
     }
     GoalService.prototype.postGoal = function (goal) {
         this.goal = goal;
@@ -1157,8 +1157,8 @@ var httpOptions = {
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/login';
-        this.logoutUrl = 'http://localhost:8080/FitApp/logout';
+        this.url = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/login';
+        this.logoutUrl = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com/FitApp/logout';
     }
     LoginService.prototype.login = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -1211,7 +1211,7 @@ var httpOptions = {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/user';
+        this.url = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user';
     }
     RegisterService.prototype.register = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -1261,7 +1261,7 @@ var httpOptions = {
 var SessionInfoService = /** @class */ (function () {
     function SessionInfoService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/session';
+        this.url = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/session';
     }
     SessionInfoService.prototype.getLoggedInUser = function () {
         return this.http.get(this.url);
@@ -1311,7 +1311,7 @@ var httpOptions = {
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/user/';
+        this.url = 'ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user/';
     }
     UserService.prototype.getUsers = function () {
         return this.http.get(this.url);
@@ -1522,7 +1522,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tdvpr\Documents\1808-Java\FitApp\angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Chris\Documents\revature\FitApp\angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })
