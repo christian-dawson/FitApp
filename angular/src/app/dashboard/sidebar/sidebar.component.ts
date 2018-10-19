@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -8,6 +8,17 @@ import { LoginService } from '../../services/login.service';
   providers: [LoginService]
 })
 export class SidebarComponent implements OnInit {
+
+  private name: String = 'goal';
+
+  @Output()
+  swapComponents: EventEmitter<String> = new EventEmitter<String>();
+
+  changeComponents(event, componentName: String) {
+    console.log('changeComponents inside sidebar.ts called! ' + componentName);
+    this.swapComponents.emit(componentName);
+  }
+
   logout() {
     console.log('logout called');
     this.ls.logout().subscribe();

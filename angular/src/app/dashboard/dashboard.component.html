@@ -1,7 +1,6 @@
-  <app-sidebar></app-sidebar>
-
+  <app-sidebar (swapComponents)="changeComponent($event)"></app-sidebar>    
   <main class="col-lg-8 offset-sm-3 col-md-10 offset-md-2 pt-3" id="dashBody">
-    <div class="container" id="topDashContainer">
+    <div class="container" id="topDashContainer" >
       <app-header></app-header>
     </div>
     <div class="container" id="mainDashContainer">
