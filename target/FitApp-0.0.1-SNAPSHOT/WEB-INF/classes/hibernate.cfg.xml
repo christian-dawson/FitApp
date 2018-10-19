@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+       "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.dialect">
+  	org.hibernate.dialect.PostgreSQLDialect
+  </property>
+  <property name="hibernate.connection.driver.class">
+  	org.postgresql.Driver
+  </property>
+  <property name="hibernate.connection.url">
+  	jdbc:postgresql://rev1808.cqgqmatj99sx.us-east-2.rds.amazonaws.com:5432/rev1808
+  </property>
+  <property name="hibernate.connection.username">
+  	christiandawson
+  </property>
+  <property name="hibernate.connection.password">
+  	2psinapod
+  </property>
+  
+  <property name="hibernate.show_sql">
+  true
+  </property>
+  
+  <!-- Mapping -->
+  <mapping class="com.revature.pojos.User"/>
+  <mapping class="com.revature.pojos.Goal"/>
+  <!-- <mapping class="com.revature.pojos.Diet"/>
+  <mapping class="com.revature.pojos.Plan"/> -->
+  <!-- Specify caching provider -->
+ </session-factory>
+</hibernate-configuration>
