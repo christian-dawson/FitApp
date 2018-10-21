@@ -12,7 +12,17 @@ create table if not exists user_account (
 "type" varchar(7) not null,
 constraint "pk_user_id" primary key ("user_id"));
 /
-create table if not exists goals (
+create table if not exists trainee_trainer (
+"trainee_id" int not null,
+"trainer_id" int,
+"pending_trainer_id" int,
+constraint "pk_composite_trainer_trainee_pending" primary key ("trainee_id", "trainer_id", "pending_trainer_id"),
+constraint "fk_trainee_id" foreign key ("trainee_id") references user_account ("user_id"),
+constraint "fk_trainer_id" foreign key ("trainer_id") references user_account ("user_id"),
+constraint "fk_pending_id" foreign key ("pending_trainer_id") references user_account ("user_id"));
+)
+/
+create table if not exists goal (
 "goal_id" serial not null,
 "user_id" int not null,
 "target_weight" numeric(5,2),
