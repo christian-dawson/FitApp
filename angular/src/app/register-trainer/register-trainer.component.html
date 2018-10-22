@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="card" id="cardId">
+  <form class="register" ngNativeValidate (submit)="createTrainer()">
+    
+    <label for="experience"></label>
+    <textarea name="experience" [(ngModel)]="experience" placeholder="Please describe your past-experience"></textarea>
+    
+    <input type="submit" value="register">
+    <a href="login">Have an account?</a>
+
+  </form>
+</div>

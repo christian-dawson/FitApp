@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="card" id="cardId">
+  <form class="register" (submit)="createTrainee()" ngNativeValidate (submit)="register()">
+
+    <label for="height">Height (cm)</label><br>
+    <input type="number" [(ngModel)]="height" name="height" max="300" min="65" required><br>
+
+    <label for="weight">Weight (kgs)</label><br>
+    <input type="number" [(ngModel)]="weight" name="weight" max="999" min="20" required><br>
+
+    <label for="targetWeight">Target Weight: </label><br>
+    <input type="number" [(ngModel)]="targetWeight" name="targetWeight"><br>
+
+    <label for="type">Additional Goals</label><br>
+    <textarea cols="22" rows="3" [(ngModel)]="type" name="type"></textarea><br>
+    <br>
+  
+    <input type="submit" value="register">
+    <a href="home">Have an account?</a>
+
+  </form>
+</div>
