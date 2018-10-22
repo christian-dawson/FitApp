@@ -22,8 +22,8 @@ export class AddGoalsComponent implements OnInit {
       } else {
         console.log(data.id);
         this.goal = {
-          goalId: this.goalId,
-          userId: data.id,
+          id: this.goalId,
+          traineeId: data.id,
           targetWeight: this.targetWeight,
           type: this.type
         };

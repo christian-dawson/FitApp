@@ -2,7 +2,7 @@ package com.revature.dao.model;
 
 import java.util.List;
 
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 import com.revature.pojos.Workout;
 
 public interface WorkoutDaoModel {

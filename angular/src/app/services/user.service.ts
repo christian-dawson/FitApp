@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../types/user';
+import { UserAccount } from '../types/user_account';
 import { HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
@@ -14,15 +14,15 @@ const httpOptions = {
 })
 export class UserService {
 
-    readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user/';
+    readonly url = 'http://localhost:8080/FitApp/user/';
 
     constructor(private http: HttpClient) {}
 
     getUsers() {
-        return this.http.get<Array<User>>(this.url);
+        return this.http.get<Array<UserAccount>>(this.url);
     }
 
-    postUser(user: User) {
-        return this.http.post<User>(this.url, user, httpOptions);
+    postUser(user: UserAccount) {
+        return this.http.post<UserAccount>(this.url, user, httpOptions);
     }
 }

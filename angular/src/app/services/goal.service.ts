@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../types/user';
 import { HttpHeaders } from '@angular/common/http';
 import { Goal } from '../types/goal';
 
@@ -16,14 +15,14 @@ const userId = 10;
   providedIn: 'root'
 })
 export class GoalService {
-  userId: number;
-  goal: Goal;
-  readonly posturl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user/' + userId + '/goal/';
+  readonly url = 'http://localhost:8080/FitApp/trainee/';
 
   constructor(private http: HttpClient) { }
 
   postGoal(goal: Goal) {
-      this.goal = goal;
-      return this.http.post<Goal>(this.posturl, goal, httpOptions);
+      return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
+  }
+  getGoal(traineeId: number) {
+    return this.http.get<Goal>(this.url + traineeId + '/goal');
   }
 }

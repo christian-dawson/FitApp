@@ -7,60 +7,72 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.model.GoalDaoModel;
+import com.revature.dao.model.TrainerDaoModel;
 import com.revature.database.SessionUtil;
-import com.revature.pojos.Goal;
+import com.revature.pojos.Trainer;
 
 @Service
-public class GoalDaoImpl implements GoalDaoModel {
+public class TrainerDaoImpl implements TrainerDaoModel {
+
+	private Session session;
 	
-	Session session;
-	
-	public GoalDaoImpl() {
+	public TrainerDaoImpl() {
 		session = SessionUtil.getSession();
 	}
 
 	@Override
-	public void create(Goal goal) {
+	public void create(Trainer goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.save(goal);
-		tran.commit();
+		try {
+			session.save(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
 	@Override
-	public Goal read(int ID) {
+	public Trainer read(int ID) {
 		createSession();
-		Goal toReturn = session.get(Goal.class, ID);
+		Trainer toReturn = session.get(Trainer.class, ID);
 		closeSession();
 		return toReturn;
 	}
 
 	@Override
-	public List<Goal> readAll() {
+	public List<Trainer> readAll() {
 		createSession();
-		Query query = session.createQuery("from Goal");
-		List<Goal> toReturn = query.getResultList();
+		Query query = session.createQuery("from Trainer");
+		List<Trainer> toReturn = query.getResultList();
 		closeSession();
 		return toReturn;
 	}
 
 	@Override
-	public void update(Goal goal) {
+	public void update(Trainer goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.update(goal);
-		tran.commit();
+		try {
+			session.update(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
 	@Override
-	public void delete(Goal goal) {
+	public void delete(Trainer goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.delete(goal);
-		tran.commit();
+		try {
+			session.delete(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 

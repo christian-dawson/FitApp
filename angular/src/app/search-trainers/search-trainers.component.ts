@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { User } from '../types/user';
+import { UserAccount } from '../types/user_account';
+import { TrainerService } from '../services/trainer.service';
+import { Trainer } from '../types/Trainer';
 
 @Component({
   selector: 'app-search-trainers',
@@ -9,13 +11,13 @@ import { User } from '../types/user';
 })
 export class SearchTrainersComponent implements OnInit {
 
-  private users: Array<User>;
+  private trainers: Array<Trainer>;
 
-  constructor(private userService: UserService) { }
+  constructor(private trainerService: TrainerService) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(data => {
-      this.users = data;
+    this.trainerService.getAll().subscribe(data => {
+      this.trainers = data;
     });
   }
 

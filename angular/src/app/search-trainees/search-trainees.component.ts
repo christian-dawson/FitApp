@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { User } from '../types/user';
+import { UserAccount } from '../types/user_account';
 
 @Component({
   selector: 'app-search-trainees',
@@ -9,7 +9,7 @@ import { User } from '../types/user';
 })
 export class SearchTraineesComponent implements OnInit {
 
-  private users: Array<User>;
+  private users: Array<UserAccount>;
 
   constructor(private userService: UserService) { }
 

@@ -1,19 +1,6 @@
 <app-header></app-header>
 <div class="card" id="cardId">
   <form class="register" ngNativeValidate (submit)="register()">
-    <label for="username">Username</label><br>
-    <input type="text" [(ngModel)]="username" name="user" required><br>
-
-    <label for="username">Password</label><br>
-    <input type="password" [(ngModel)]="password" name="pass" required><br>
-
-    <label for="address">address</label><br>
-    <input type="text" [(ngModel)]="address" name="address" required><br>
-
-    <label for="firstName">First Name</label><br>
-    <input type="text" [(ngModel)]="firstName" name="firstName" required><br>
-    <label for="lastName">Last Name</label><br>
-    <input type="text" [(ngModel)]="lastName" name="lastName" required><br>
 
     <label for="type">User Type</label><br>
     <select name="type" [(ngModel)]="type">
@@ -21,13 +8,28 @@
       <option value="trainer">Trainer</option>
     </select><br>
 
+    <label for="username">Username</label><br>
+    <input type="text" [(ngModel)]="username" name="user" required><br>
+
+    <label for="username">Password</label><br>
+    <input type="password" [(ngModel)]="password" name="pass" required><br>
+
+    <label for="address">Address</label><br>
+    <input type="text" [(ngModel)]="address" name="address" required><br>
+
+    <label for="firstName">First Name</label><br>
+    <input type="text" [(ngModel)]="firstName" name="firstName" required><br>
+    <label for="lastName">Last Name</label><br>
+    <input type="text" [(ngModel)]="lastName" name="lastName" required><br>
+
+    <label for="gender">Gender</label><br>
+    <select name="gender" required [(ngModel)]="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br>
+
     <label for="birthdate">Date of Birth</label><br>
     <input type="date" [(ngModel)]="birthdate" name="birthdate" required min="{{minDate}}" max={{maxDate}}><br>
-
-    <label for="height">Height (cm)</label><br>
-    <input type="number" [(ngModel)]="height" name="height" min="1" max="300"><br>
-    <label for="weight">Weight (kg)</label><br>
-    <input type="number" [(ngModel)]="weight" name="weight" min="1" max="9000"><br>
     <br>
     <input type="submit" value="register">
     <a href="login">Have an account?</a>

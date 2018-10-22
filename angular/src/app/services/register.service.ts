@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../types/user';
+import { UserAccount } from '../types/user_account';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
@@ -15,12 +15,15 @@ const httpOptions = {
 })
 export class RegisterService {
 
-    readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user';
+    readonly url = 'http://localhost:8080/FitApp/user';
 
     constructor(private http: HttpClient) {}
 
-    register(user: User): Observable<User> {
-        return this.http.post<User>(this.url, JSON.stringify(user), httpOptions);
+    register(user: UserAccount): Observable<UserAccount> {
+        return this.http.post<UserAccount>(this.url, JSON.stringify(user), httpOptions);
+    }
+    put(account: UserAccount): Observable<UserAccount> {
+        return this.http.put<UserAccount>(this.url + '/' + account.id, account, httpOptions);
     }
 
 }

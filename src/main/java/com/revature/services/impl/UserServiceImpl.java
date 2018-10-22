@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.model.UserDaoModel;
-import com.revature.pojos.User;
+import com.revature.dao.model.UserAccountDaoModel;
+import com.revature.pojos.UserAccount;
 import com.revature.servicess.model.UserServiceModel;
 
 @Service
 public class UserServiceImpl implements UserServiceModel {
 	
 	@Autowired
-	UserDaoModel userDB;
+	UserAccountDaoModel userDB;
 
 	@Override
-	public List<User> getAll() {
+	public List<UserAccount> getAll() {
 		return userDB.readAll();
 	}
 
 	@Override
-	public User authenticate(User user) {
-		List<User> users = userDB.readAll();
-		for(User userInDatabase : users) {
+	public UserAccount authenticate(UserAccount user) {
+		List<UserAccount> users = userDB.readAll();
+		for(UserAccount userInDatabase : users) {
 			if(userInDatabase.getUsername().equals(user.getUsername())
 					&& userInDatabase.getPassword().equals(user.getPassword())) {
 				return userInDatabase;
@@ -33,17 +33,17 @@ public class UserServiceImpl implements UserServiceModel {
 	}
 
 	@Override
-	public void add(User user) {
+	public void add(UserAccount user) {
 		userDB.create(user);
 	}
 
 	@Override
-	public User get(int id) {
+	public UserAccount get(int id) {
 		return userDB.read(id);
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(UserAccount user) {
 		userDB.update(user);
 	}
 }

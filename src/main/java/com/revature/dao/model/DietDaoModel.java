@@ -3,7 +3,7 @@ package com.revature.dao.model;
 import java.util.List;
 
 import com.revature.pojos.Diet;
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 
 public interface DietDaoModel {
 	public void create(Diet diet);

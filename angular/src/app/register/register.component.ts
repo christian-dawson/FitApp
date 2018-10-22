@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { User } from '../types/user';
+import { UserAccount } from '../types/user_account';
 import { RegisterService } from '../services/register.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,11 +29,9 @@ export class RegisterComponent implements OnInit {
   firstName: string;
   lastName: string;
   type: string;
+  gender: string;
   birthdate: string;
-  weight: number;
-  height: number;
-  user: User;
-  goal: Goal;
+  user: UserAccount;
 
   register() {
     this.user = {
@@ -43,17 +41,17 @@ export class RegisterComponent implements OnInit {
       address: this.address,
       firstName: this.firstName,
       lastName: this.lastName,
-      type: this.type,
+      gender: this.gender,
       birthdate: this.birthdate,
-      weight: this.weight,
-      height: this.height,
-      goal: this.goal
+      type: this.type
     };
-    console.log(this.user.type);
     this.registerService.register(this.user)
       .subscribe(data => {
-        this.user = data;
-        this.router.navigateByUrl('goal');
+        if (this.user.type === 'trainer') {
+          this.router.navigateByUrl('register-trainer');
+        } else {
+          this.router.navigateByUrl('register-trainee');
+        }
       }
       );
   }

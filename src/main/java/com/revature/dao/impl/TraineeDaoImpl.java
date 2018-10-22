@@ -7,63 +7,75 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.model.GoalDaoModel;
+import com.revature.dao.model.TraineeDaoModel;
 import com.revature.database.SessionUtil;
-import com.revature.pojos.Goal;
+import com.revature.pojos.Trainee;
+import com.revature.pojos.Trainer;
 
 @Service
-public class GoalDaoImpl implements GoalDaoModel {
+public class TraineeDaoImpl implements TraineeDaoModel {
 	
-	Session session;
+	private Session session;
 	
-	public GoalDaoImpl() {
+	public TraineeDaoImpl() {
 		session = SessionUtil.getSession();
 	}
 
 	@Override
-	public void create(Goal goal) {
+	public void create(Trainee trainee) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.save(goal);
-		tran.commit();
+		try {
+			session.save(trainee);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
 	@Override
-	public Goal read(int ID) {
+	public Trainee read(int ID) {
 		createSession();
-		Goal toReturn = session.get(Goal.class, ID);
+		Trainee toReturn = session.get(Trainee.class, ID);
 		closeSession();
 		return toReturn;
 	}
 
 	@Override
-	public List<Goal> readAll() {
+	public List<Trainee> readAll() {
 		createSession();
-		Query query = session.createQuery("from Goal");
-		List<Goal> toReturn = query.getResultList();
+		Query query = session.createQuery("from Trainee");
+		List<Trainee> toReturn = query.getResultList();
 		closeSession();
 		return toReturn;
 	}
 
 	@Override
-	public void update(Goal goal) {
+	public void update(Trainee goal) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.update(goal);
-		tran.commit();
+		try {
+			session.update(goal);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
 
 	@Override
-	public void delete(Goal goal) {
+	public void delete(Trainee trainee) {
 		createSession();
 		Transaction tran = session.beginTransaction();
-		session.delete(goal);
-		tran.commit();
+		try {
+			session.delete(trainee);
+			tran.commit();
+		}catch(IllegalStateException e) {
+			tran.rollback();
+		}
 		closeSession();
 	}
-
 	//Test purposes only
 	public void setSession(Session session) {
 		this.session = session;

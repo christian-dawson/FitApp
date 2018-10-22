@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddGoalsComponent } from './add-goals/add-goals.component';
-import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { TraineeSidebarComponent } from './trainee-sidebar/trainee-sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { AlertComponent } from './alert/alert.component';
 import { SearchTrainersComponent } from './search-trainers/search-trainers.component';
@@ -19,12 +19,17 @@ import { InsertComponentDirective } from './directives/insert-component.directiv
 
 import { TraineePipePipe } from './trainee-pipe.pipe';
 import { SearchTraineesComponent } from './search-trainees/search-trainees.component';
+import { RegisterTraineeComponent } from './register-trainee/register-trainee.component';
+import { RegisterTrainerComponent } from './register-trainer/register-trainer.component';
+import { TrainerSidebarComponent } from './trainer-sidebar/trainer-sidebar.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'home', component: DashboardComponent},
-  { path: 'goal', component: AddGoalsComponent }
+  { path: 'goal', component: AddGoalsComponent },
+  { path: 'register-trainee', component: RegisterTraineeComponent},
+  { path: 'register-trainer', component: RegisterTrainerComponent}
 ];
 @NgModule({
   declarations: [
@@ -33,7 +38,7 @@ const routes: Routes = [
     RegisterComponent,
     DashboardComponent,
     AddGoalsComponent,
-    SidebarComponent,
+    TraineeSidebarComponent,
     HeaderComponent,
     AlertComponent,
     SearchTrainersComponent,
@@ -42,7 +47,10 @@ const routes: Routes = [
     InsertComponentDirective,
     TraineePipePipe,
     TrainerPipePipe,
-    InsertComponentDirective
+    InsertComponentDirective,
+    RegisterTraineeComponent,
+    RegisterTrainerComponent,
+    TrainerSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +64,7 @@ const routes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SearchTrainersComponent, SearchTraineesComponent]
+  entryComponents: [SearchTrainersComponent, SearchTraineesComponent,
+    TraineeSidebarComponent, TrainerSidebarComponent]
 })
 export class AppModule { }

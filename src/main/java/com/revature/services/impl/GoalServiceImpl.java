@@ -1,10 +1,13 @@
 package com.revature.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.model.GoalDaoModel;
-import com.revature.dao.model.UserDaoModel;
+import com.revature.dao.model.TraineeDaoModel;
+import com.revature.dao.model.UserAccountDaoModel;
 import com.revature.pojos.Goal;
 import com.revature.servicess.model.GoalServiceModel;
 
@@ -15,7 +18,10 @@ public class GoalServiceImpl implements GoalServiceModel {
 	GoalDaoModel goalDB;
 	
 	@Autowired
-	UserDaoModel userDB;
+	UserAccountDaoModel userDB;
+	
+	@Autowired
+	TraineeDaoModel traineeDB;
 
 	
 	@Override
@@ -24,8 +30,19 @@ public class GoalServiceImpl implements GoalServiceModel {
 	}
 
 	@Override
-	public Goal getGoal(int userId) {
-		return goalDB.read(userDB.read(userId).getGoal().getGoalId());
+	public Goal getGoal(int goalId) {
+		return goalDB.read (goalId);
+	}
+
+	@Override
+	public Goal getGoalFromUser(int userId) {
+		List<Goal> allGoals = goalDB.readAll();
+		for(Goal goal : allGoals) {
+			if(goal.getTraineeId() == userId) {
+				return goal;
+			}
+		}
+		return null;
 	}
 
 }

@@ -5,6 +5,8 @@ import {
  } from '@angular/core';
 import { SearchTrainersComponent } from '../search-trainers/search-trainers.component';
 import { AddGoalsComponent } from '../add-goals/add-goals.component';
+import { TraineeSidebarComponent } from '../trainee-sidebar/trainee-sidebar.component';
+import { TrainerSidebarComponent } from '../trainer-sidebar/trainer-sidebar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +31,18 @@ export class DynamicComponentDashboardService {
   addGoalComponent() {
     this.rootViewContainer.clear();
     const factory = this.factoryResolver.resolveComponentFactory(AddGoalsComponent);
+    const component = factory.create(this.rootViewContainer.parentInjector);
+    this.rootViewContainer.insert(component.hostView);
+  }
+  addTraineeSidebar() {
+    this.rootViewContainer.clear();
+    const factory = this.factoryResolver.resolveComponentFactory(TraineeSidebarComponent);
+    const component = factory.create(this.rootViewContainer.parentInjector);
+    this.rootViewContainer.insert(component.hostView);
+  }
+  addTrainerSidebar() {
+    this.rootViewContainer.clear();
+    const factory = this.factoryResolver.resolveComponentFactory(TrainerSidebarComponent);
     const component = factory.create(this.rootViewContainer.parentInjector);
     this.rootViewContainer.insert(component.hostView);
   }
