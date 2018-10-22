@@ -1361,8 +1361,8 @@ var httpOptions = {
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
-        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/login';
-        this.logoutUrl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/logout';
+        this.url = 'http://localhost:8080/FitApp/login';
+        this.logoutUrl = 'http://localhost:8080/FitApp/logout';
     }
     LoginService.prototype.login = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -1765,7 +1765,7 @@ module.exports = ".sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    botto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link active\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Request Plan</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <p class=\"nav-link\" (click)=\"changeComponents($event, name)\" (click)=\"name = 'goal'\">Edit Goals</p>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Search Trainers</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Edit Account Information</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" (click)=\"logout()\" href=\"login\">Logout</a>\r\n    </li>\r\n  </ul>\r\n</nav>"
+module.exports = "<nav class=\"col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar\">\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link active\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Request Plan</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <p class=\"nav-link\" (click)=\"changeComponents('goal')\">Edit Goals</p>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Search Trainers</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"#\">Edit Account Information</a>\r\n    </li>\r\n  </ul>\r\n\r\n  <ul class=\"nav nav-pills flex-column\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" (click)=\"logout()\" href=\"login\">Logout</a>\r\n    </li>\r\n  </ul>\r\n</nav>"
 
 /***/ }),
 
@@ -1798,8 +1798,9 @@ var TraineeSidebarComponent = /** @class */ (function () {
     function TraineeSidebarComponent(ls) {
         this.ls = ls;
     }
-    TraineeSidebarComponent.prototype.changeComponents = function (event, componentName) {
-        console.log('changeComponents inside sidebar.ts called! ' + componentName);
+    // private name: String;
+    TraineeSidebarComponent.prototype.changeComponents = function (name) {
+        console.log('changeComponents inside sidebar.ts called! ' + name);
         _services_sidebar_listener_service__WEBPACK_IMPORTED_MODULE_2__["SidebarListenerService"].emitEvent(name);
     };
     TraineeSidebarComponent.prototype.logout = function () {

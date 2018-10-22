@@ -12,10 +12,10 @@ import { SidebarListenerService } from '../services/sidebar-listener.service';
 })
 export class TraineeSidebarComponent implements OnInit {
 
-  private name: String;
+ // private name: String;
 
-  changeComponents(event, componentName: String) {
-    console.log('changeComponents inside sidebar.ts called! ' + componentName);
+  changeComponents(name: String) {
+    console.log('changeComponents inside sidebar.ts called! ' + name);
     SidebarListenerService.emitEvent(name);
   }
 
