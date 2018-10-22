@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="card" id="cardId">
-  <form class="register" (submit)="createTrainee()" ngNativeValidate (submit)="register()">
+  <form class="register" (submit)="createTrainee()" ngNativeValidate>
 
     <label for="height">Height (cm)</label><br>
     <input type="number" [(ngModel)]="height" name="height" max="300" min="65" required><br>

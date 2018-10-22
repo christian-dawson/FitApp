@@ -8,33 +8,26 @@ create table if not exists user_account (
 "birthdate" date not null,
 "gender" varchar(6) not null,
 "type" varchar(7) not null,
-constraint "pk_user_id" primary key ("user_id"));
+constraint "pk_user_id" primary key ("account_id"));
 /
-create table trainer (
+create table if not exists trainer (
 "trainer_id" int not null,
 "rating" numeric(2,1),
 "experience" text,
 constraint "pk_trainer_id" primary key (trainer_id),
-constraint "fk_trainer_id" foreign key (trainer_id) references user_account ("user_id"));
-)
+constraint "fk_trainer_id" foreign key (trainer_id) references user_account ("account_id"));
 /
-create table trainee (
+create table if not exists trainee (
 "trainee_id" int not null,
 "weight" numeric(5,2),
 "height" int,
 "goal" int,
-constraint pk_trainee_id primary key (trainee_id),
-constraint fk_trainee_id foreign key (trainee_id) references user_account (user_id));
-/
-create table if not exists trainee_trainer (
-"id" serial not null,
-"trainee_id" int not null,
 "trainer_id" int,
-"pending_trainer_id" int,
-constraint "pk_id" primary key ("id"),
-constraint "fk_trainee_id" foreign key ("trainee_id") references trainee ("trainee_id"),
-constraint "fk_trainer_id" foreign key ("trainer_id") references trainer ("trainer_id"),
-constraint "fk_pending_id" foreign key ("pending_trainer_id") references trainer ("trainer_id"));
+"requested_id" int,
+constraint pk_trainee_id primary key (trainee_id),
+constraint fk_trainee_id foreign key (trainee_id) references user_account (account_id),
+constraint fk_trainer_id foreign key (trainer_id) references trainer (trainer_id),
+constraint fk_requested_id foreign key (requested_id) references trainer (trainer_id));
 /
 create table if not exists goal (
 "goal_id" serial not null,

@@ -403,6 +403,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_dynamic_component_dashboard_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/dynamic-component-dashboard.service */ "./src/app/services/dynamic-component-dashboard.service.ts");
 /* harmony import */ var _services_session_info_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/session-info.service */ "./src/app/services/session-info.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_sidebar_listener_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/sidebar-listener.service */ "./src/app/services/sidebar-listener.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -412,6 +413,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -442,6 +444,9 @@ var DashboardComponent = /** @class */ (function () {
     };
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        _services_sidebar_listener_service__WEBPACK_IMPORTED_MODULE_4__["SidebarListenerService"].getObservable().subscribe(function (data) {
+            _this.changeComponent(data);
+        });
         this.sess.getLoggedInUser().subscribe(function (data) {
             if (!data) {
                 _this.router.navigateByUrl('login');
@@ -727,7 +732,7 @@ module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" (submit)=\"createTrainee()\" ngNativeValidate (submit)=\"register()\">\n\n    <label for=\"height\">Height (cm)</label><br>\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" max=\"300\" min=\"65\" required><br>\n\n    <label for=\"weight\">Weight (kgs)</label><br>\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" max=\"999\" min=\"20\" required><br>\n\n    <label for=\"targetWeight\">Target Weight: </label><br>\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\n\n    <label for=\"type\">Additional Goals</label><br>\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\n    <br>\n  \n    <input type=\"submit\" value=\"register\">\n    <a href=\"home\">Have an account?</a>\n\n  </form>\n</div>\n"
+module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" (submit)=\"createTrainee()\" ngNativeValidate>\n\n    <label for=\"height\">Height (cm)</label><br>\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" max=\"300\" min=\"65\" required><br>\n\n    <label for=\"weight\">Weight (kgs)</label><br>\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" max=\"999\" min=\"20\" required><br>\n\n    <label for=\"targetWeight\">Target Weight: </label><br>\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\n\n    <label for=\"type\">Additional Goals</label><br>\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\n    <br>\n  \n    <input type=\"submit\" value=\"register\">\n    <a href=\"home\">Have an account?</a>\n\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1481,6 +1486,52 @@ var SessionInfoService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/sidebar-listener.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/services/sidebar-listener.service.ts ***!
+  \******************************************************/
+/*! exports provided: SidebarListenerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarListenerService", function() { return SidebarListenerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SidebarListenerService = /** @class */ (function () {
+    function SidebarListenerService() {
+    }
+    SidebarListenerService.emitEvent = function (name) {
+        this.nameEmitter.next(name);
+    };
+    SidebarListenerService.getObservable = function () {
+        return this.nameEmitter.asObservable();
+    };
+    SidebarListenerService.nameEmitter = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    SidebarListenerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SidebarListenerService);
+    return SidebarListenerService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/trainee.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/trainee.service.ts ***!
@@ -1730,7 +1781,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TraineeSidebarComponent", function() { return TraineeSidebarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _services_sidebar_listener_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/sidebar-listener.service */ "./src/app/services/sidebar-listener.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1746,11 +1797,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TraineeSidebarComponent = /** @class */ (function () {
     function TraineeSidebarComponent(ls) {
         this.ls = ls;
-        this.componentSwap = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     TraineeSidebarComponent.prototype.changeComponents = function (event, componentName) {
         console.log('changeComponents inside sidebar.ts called! ' + componentName);
-        this.componentSwap.next(name);
+        _services_sidebar_listener_service__WEBPACK_IMPORTED_MODULE_2__["SidebarListenerService"].emitEvent(name);
     };
     TraineeSidebarComponent.prototype.logout = function () {
         console.log('logout called');

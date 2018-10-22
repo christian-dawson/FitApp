@@ -8,6 +8,8 @@ import { DynamicComponentDashboardService } from '../services/dynamic-component-
 import { UserAccount } from '../types/user_account';
 import { SessionInfoService } from '../services/session-info.service';
 import { Router } from '@angular/router';
+import { TraineeSidebarComponent } from '../trainee-sidebar/trainee-sidebar.component';
+import { SidebarListenerService } from '../services/sidebar-listener.service';
 
 
 @Component({
@@ -53,6 +55,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    SidebarListenerService.getObservable().subscribe(data => {
+      this.changeComponent(data);
+    });
     this.sess.getLoggedInUser().subscribe(data => {
       if (!data) {
         this.router.navigateByUrl('login');

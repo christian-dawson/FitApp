@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class UserAccount {
 	
 	@Id
-	@Column(name="user_id")
+	@Column(name="account_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="username")
