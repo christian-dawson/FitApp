@@ -13,9 +13,7 @@ public class Goal {
 	@Id
 	@Column(name="goal_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer goalId;
-	@Column(name="user_id")
-	private Integer userId;
+	private Integer id;
 	@Column(name="target_weight")
 	private Double targetWeight;
 	@Column(name="type")
@@ -24,24 +22,17 @@ public class Goal {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Goal(Integer goalId, Integer userId, Double targetWeight, String type) {
+	public Goal(Integer goalId, Double targetWeight, String type) {
 		super();
-		this.goalId = goalId;
-		this.userId = userId;
+		this.id = goalId;
 		this.targetWeight = targetWeight;
 		this.type = type;
 	}
 	public Integer getGoalId() {
-		return goalId;
+		return id;
 	}
 	public void setGoalId(Integer goalId) {
-		this.goalId = goalId;
-	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+		this.id = goalId;
 	}
 	public Double getTargetWeight() {
 		return targetWeight;
@@ -57,7 +48,7 @@ public class Goal {
 	}
 	@Override
 	public String toString() {
-		return "Goal [goalId=" + goalId + ", userId=" + userId + ", targetWeight=" + targetWeight + ", type=" + type
+		return "Goal [goalId=" + id + ", targetWeight=" + targetWeight + ", type=" + type
 				+ "]";
 	}
 }

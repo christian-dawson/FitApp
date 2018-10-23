@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 import com.revature.servicess.model.UserServiceModel;
 
 @Controller
@@ -19,7 +19,7 @@ public class LoginController {
 	private UserServiceModel userServ;
 
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes={"application/json"})
-	public @ResponseBody User login(@RequestBody User user, HttpSession session) {
+	public @ResponseBody UserAccount login(@RequestBody UserAccount user, HttpSession session) {
 		user = userServ.authenticate(user);
 		if(user != null) session.setAttribute("user", user);
 		return user;

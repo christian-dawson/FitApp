@@ -23,7 +23,7 @@ import org.mockito.MockitoAnnotations;
 import com.revature.dao.impl.FitnessPlanDaoImpl;
 import com.revature.dao.impl.UserDaoImpl;
 import com.revature.pojos.FitnessPlan;
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 
 public class TestPlanDao {
 

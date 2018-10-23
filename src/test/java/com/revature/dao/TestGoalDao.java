@@ -70,7 +70,7 @@ public class TestGoalDao {
 		assertEquals(testGoal.getGoalId(), result.getGoalId());
 		assertEquals(testGoal.getTargetWeight(), result.getTargetWeight());
 		assertEquals(testGoal.getType(), result.getType());
-		assertEquals(testGoal.getUserId(), result.getUserId());		
+		assertEquals(testGoal.getTraineeId(), result.getTraineeId());		
 	}
 	
 	@Test

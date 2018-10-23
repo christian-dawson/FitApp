@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 import com.revature.servicess.model.UserServiceModel;
 
 @Component
@@ -25,28 +25,29 @@ public class UserController {
 	private UserServiceModel userServ;
 	
 	@RequestMapping(value="/user", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<User> doGet() {
+	public @ResponseBody List<UserAccount> doGet() {
 		return userServ.getAll();
 	}
 	@RequestMapping(value="/user", method=RequestMethod.POST, consumes= {"application/json"})
-	public @ResponseBody void doPost(@RequestBody User user, HttpSession sess) {
+	public @ResponseBody void doPost(@RequestBody UserAccount user, HttpSession sess) {
 		System.out.println("user.post called with user: " + user);
 		userServ.add(user);
 		sess.setAttribute("user", user);
 		
 	}
 	@RequestMapping(value="/user/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody User doGet(@PathVariable("id") String id) {
+	public @ResponseBody UserAccount doGet(@PathVariable("id") String id) {
 		return userServ.get(Integer.parseInt(id));
 	}
 	@RequestMapping(value="/user/{id}", method=RequestMethod.PUT, consumes= {"application/json"})
-	public @ResponseBody void doPut(@PathVariable("id") Integer id, @RequestBody User user) {
+	public @ResponseBody void doPut(@PathVariable("id") Integer id, @RequestBody UserAccount user) {
+		System.out.println("user.put called with user: " + user);
 		user.setId(id);
 		userServ.update(user);
 	}
 	@RequestMapping(value="/session", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody User getSessionUser(HttpSession session) {
-		User user = (User)session.getAttribute("user");
+	public @ResponseBody UserAccount getSessionUser(HttpSession session) {
+		UserAccount user = (UserAccount)session.getAttribute("user");
 		return user;
 	}
 }

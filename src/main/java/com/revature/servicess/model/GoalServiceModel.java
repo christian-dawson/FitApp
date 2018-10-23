@@ -4,5 +4,6 @@ import com.revature.pojos.Goal;
 
 public interface GoalServiceModel {
 	public void addGoal(Goal goal);
-	public Goal getGoal(int userId);
+	public Goal getGoal(int goalId);
+	public void updateGoal(Goal goal);
 }

@@ -11,16 +11,16 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.model.UserDaoModel;
+import com.revature.dao.model.UserAccountDaoModel;
 import com.revature.database.SessionUtil;
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 
 @Service
-public class UserDaoImpl implements UserDaoModel {
+public class UserDaoImpl implements UserAccountDaoModel {
 	
 	private Session session;
 
-	public void create(User user) {
+	public void create(UserAccount user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
 		try {
@@ -33,27 +33,27 @@ public class UserDaoImpl implements UserDaoModel {
 		}
 	}
 
-	public User read(int ID) {
+	public UserAccount read(int ID) {
 		createSession();
-		User user = session.get(User.class, ID);
+		UserAccount user = session.get(UserAccount.class, ID);
 		closeSession();
 		return user;
 	}
 
-	public List<User> readAll() {
+	public List<UserAccount> readAll() {
 		createSession();
-		Query query = session.createQuery("FROM User");
-		List<User> users = query.getResultList();
+		Query query = session.createQuery("FROM UserAccount");
+		List<UserAccount> users = query.getResultList();
 		session.close();
 		closeSession();
 		return users;
 	}
 
-	public void update(User user) {
+	public void update(UserAccount user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
 		try {
-			session.update(user);
+			session.merge(user);
 			tran.commit();
 		}
 		catch(RollbackException e) {
@@ -62,7 +62,7 @@ public class UserDaoImpl implements UserDaoModel {
 		closeSession();
 	}
 	
-	public void delete(User user) {
+	public void delete(UserAccount user) {
 		createSession();
 		Transaction tran = session.beginTransaction();
 		try {

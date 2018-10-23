@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.pojos.Goal;
-import com.revature.pojos.User;
+import com.revature.pojos.UserAccount;
 import com.revature.services.impl.GoalServiceImpl;
 import com.revature.servicess.model.GoalServiceModel;
+import com.revature.servicess.model.TraineeServiceModel;
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("user/{id}/goal")
+@RequestMapping("trainee/{id}/goal")
 public class GoalController {
 	
 	@Autowired
 	GoalServiceModel goalServ;
 	
+	@Autowired
+	TraineeServiceModel traineeServ;
+	
 	public GoalController() {
 		goalServ = new GoalServiceImpl();
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	/*@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody Goal getGoals(@PathVariable("id") int id) {
-		return goalServ.getGoal(id);
-	}
+		return goalServ.getGoalFromUser(id);
+	}*/
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public void setGoal(@PathVariable("id") int id, @RequestBody Goal goal, HttpSession sess) {
-		goal.setUserId(id);
+	public void setGoal(@PathVariable("id") int id, @RequestBody Goal goal) {
 		goalServ.addGoal(goal);
-		if(id == ((User)sess.getAttribute("user")).getId()) {
-			((User)(sess.getAttribute("user"))).setGoal(goal);
-		}
 	}
 }
