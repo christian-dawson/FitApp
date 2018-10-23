@@ -23,14 +23,13 @@ export class AddGoalsComponent implements OnInit {
         console.log(data.id);
         this.goal = {
           id: this.goalId,
-          traineeId: data.id,
           targetWeight: this.targetWeight,
           type: this.type
         };
-         this.goalService.postGoal(this.goal).subscribe(doSomething => {
-            this.router.navigateByUrl('home');
-         }
-        );
+        //  this.goalService.postGoal(this.goal).subscribe(doSomething => {
+        //     this.router.navigateByUrl('home');
+        //  }
+        // );
       }
     });
   }

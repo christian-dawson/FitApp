@@ -29,14 +29,13 @@ public class GoalController {
 		goalServ = new GoalServiceImpl();
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	/*@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody Goal getGoals(@PathVariable("id") int id) {
 		return goalServ.getGoalFromUser(id);
-	}
+	}*/
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public void setGoal(@PathVariable("id") int id, @RequestBody Goal goal) {
-		goal.setTraineeId(id);
 		goalServ.addGoal(goal);
 	}
 }

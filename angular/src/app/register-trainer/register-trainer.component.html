@@ -3,8 +3,24 @@
   <form class="register" ngNativeValidate (submit)="createTrainer()">
     
     <label for="experience"></label>
-    <textarea name="experience" [(ngModel)]="experience" placeholder="Please describe your past-experience"></textarea>
-    
+    <textarea name="experience" [(ngModel)]="experience" placeholder="Please describe your past-experience"></textarea> <br>
+    <label for="address">Address</label><br>
+    <input type="text" [(ngModel)]="address" name="address" required><br>
+
+    <label for="firstName">First Name</label><br>
+    <input type="text" [(ngModel)]="firstName" name="firstName" required><br>
+    <label for="lastName">Last Name</label><br>
+    <input type="text" [(ngModel)]="lastName" name="lastName" required><br>
+
+    <label for="gender">Gender</label><br>
+    <select name="gender" required [(ngModel)]="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br>
+
+    <label for="birthdate">Date of Birth</label><br>
+    <input type="date" [(ngModel)]="birthdate" name="birthdate" required min="{{minDate}}" max={{maxDate}}><br>
+    <br>
     <input type="submit" value="register">
     <a href="login">Have an account?</a>
 

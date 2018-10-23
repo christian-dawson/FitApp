@@ -21,16 +21,6 @@ public class UserAccount {
 	private String username;
 	@Column(name="password")
 	private String password;
-	@Column(name="address")
-	private String address;
-	@Column(name="first_name")
-	private String firstName;
-	@Column(name="last_name")
-	private String lastName;
-	@Column(name="birthdate")
-	private Date birthdate;
-	@Column(name="gender")
-	private String gender;
 	@Column(name="type")
 	private String type;
 	
@@ -46,24 +36,10 @@ public class UserAccount {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.address = address;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.birthdate = birthdate;
-		this.gender = gender;
-		this.type = type;
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	public void setId(int id) {
@@ -90,46 +66,6 @@ public class UserAccount {
 		this.password = password;
 	}
 
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-
-	public String getLastName() {
-		return lastName;
-	}
-
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-
-	public Date getBirthdate() {
-		return birthdate;
-	}
-
-
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
-	}
-
 	public String getType() {
 		return type;
 	}
@@ -140,9 +76,7 @@ public class UserAccount {
 
 	@Override
 	public String toString() {
-		return "UserAccount [id=" + id + ", username=" + username + ", password=" + password + ", address=" + address
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate + ", gender="
-				+ gender + ", type=" + type + "]";
+		return "UserAccount [id=" + id + ", username=" + username + ", password=" + password + ", address=" + "]";
 	}
 	
 }

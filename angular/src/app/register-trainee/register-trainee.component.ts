@@ -15,28 +15,39 @@ import { GoalService } from '../services/goal.service';
 export class RegisterTraineeComponent implements OnInit {
 
   private account: UserAccount;
+  private type: string;
   private height: number;
   private weight: number;
   private targetWeight: number;
-  private type: string;
   private trainee: Trainee;
   private goal: Goal;
+  private address: string;
+  private firstName: string;
+  private lastName: string;
+  private gender: string;
+  private birthdate: string;
 
   createTrainee() {
       this.trainee = {
+      trainerId: null,
+      requestedId: null,
+      address: this.address,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthdate: this.birthdate,
       id: this.account.id,
       height: this.height,
       weight: this.weight,
-    };
-    this.goal = {
-      id: 0,
-      traineeId: this.account.id,
-      targetWeight: this.targetWeight,
-      type: this.type
+      goal: {
+        id: 0,
+        targetWeight: this.targetWeight,
+        type: this.type
+      }
     };
     console.log(this.trainee);
     this.traineeServ.post(this.trainee).subscribe(data => console.log('success!'));
-    this.goalServ.postGoal(this.goal).subscribe(data => console.log('sucecss!'));
+    // this.goalServ.postGoal(this.goal).subscribe(data => console.log('sucecss!'));
     this.router.navigateByUrl('home');
   }
 

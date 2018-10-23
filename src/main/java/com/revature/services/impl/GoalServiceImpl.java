@@ -35,14 +35,8 @@ public class GoalServiceImpl implements GoalServiceModel {
 	}
 
 	@Override
-	public Goal getGoalFromUser(int userId) {
-		List<Goal> allGoals = goalDB.readAll();
-		for(Goal goal : allGoals) {
-			if(goal.getTraineeId() == userId) {
-				return goal;
-			}
-		}
-		return null;
+	public void updateGoal(Goal goal) {
+		goalDB.update(goal);		
 	}
 
 }

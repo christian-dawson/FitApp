@@ -88,13 +88,13 @@ var AddGoalsComponent = /** @class */ (function () {
                 console.log(data.id);
                 _this.goal = {
                     id: _this.goalId,
-                    traineeId: data.id,
                     targetWeight: _this.targetWeight,
                     type: _this.type
                 };
-                _this.goalService.postGoal(_this.goal).subscribe(function (doSomething) {
-                    _this.router.navigateByUrl('home');
-                });
+                //  this.goalService.postGoal(this.goal).subscribe(doSomething => {
+                //     this.router.navigateByUrl('home');
+                //  }
+                // );
             }
         });
     };
@@ -732,7 +732,7 @@ module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" (submit)=\"createTrainee()\" ngNativeValidate>\n\n    <label for=\"height\">Height (cm)</label><br>\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" max=\"300\" min=\"65\" required><br>\n\n    <label for=\"weight\">Weight (kgs)</label><br>\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" max=\"999\" min=\"20\" required><br>\n\n    <label for=\"targetWeight\">Target Weight: </label><br>\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\n\n    <label for=\"type\">Additional Goals</label><br>\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\n    <br>\n  \n    <input type=\"submit\" value=\"register\">\n    <a href=\"home\">Have an account?</a>\n\n  </form>\n</div>\n"
+module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" (submit)=\"createTrainee()\" ngNativeValidate>\n\n    <label for=\"height\">Height (cm)</label><br>\n    <input type=\"number\" [(ngModel)]=\"height\" name=\"height\" max=\"300\" min=\"65\" required><br>\n\n    <label for=\"weight\">Weight (kgs)</label><br>\n    <input type=\"number\" [(ngModel)]=\"weight\" name=\"weight\" max=\"999\" min=\"20\" required><br>\n\n    <label for=\"targetWeight\">Target Weight: </label><br>\n    <input type=\"number\" [(ngModel)]=\"targetWeight\" name=\"targetWeight\"><br>\n\n    <label for=\"type\">Additional Goals</label><br>\n    <textarea cols=\"22\" rows=\"3\" [(ngModel)]=\"type\" name=\"type\"></textarea><br>\n    <br>\n    <label for=\"address\">Address</label><br>\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\n\n    <label for=\"firstName\">First Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\n    <label for=\"lastName\">Last Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\n\n    <label for=\"gender\">Gender</label><br>\n    <select name=\"gender\" required [(ngModel)]=\"gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select><br>\n\n    <label for=\"birthdate\">Date of Birth</label><br>\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\n    <br>\n    <input type=\"submit\" value=\"register\">\n    <a href=\"home\">Have an account?</a>\n\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -774,19 +774,25 @@ var RegisterTraineeComponent = /** @class */ (function () {
     }
     RegisterTraineeComponent.prototype.createTrainee = function () {
         this.trainee = {
+            trainerId: null,
+            requestedId: null,
+            address: this.address,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            gender: this.gender,
+            birthdate: this.birthdate,
             id: this.account.id,
             height: this.height,
             weight: this.weight,
-        };
-        this.goal = {
-            id: 0,
-            traineeId: this.account.id,
-            targetWeight: this.targetWeight,
-            type: this.type
+            goal: {
+                id: 0,
+                targetWeight: this.targetWeight,
+                type: this.type
+            }
         };
         console.log(this.trainee);
         this.traineeServ.post(this.trainee).subscribe(function (data) { return console.log('success!'); });
-        this.goalServ.postGoal(this.goal).subscribe(function (data) { return console.log('sucecss!'); });
+        // this.goalServ.postGoal(this.goal).subscribe(data => console.log('sucecss!'));
         this.router.navigateByUrl('home');
     };
     RegisterTraineeComponent.prototype.ngOnInit = function () {
@@ -835,7 +841,7 @@ module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" ngNativeValidate (submit)=\"createTrainer()\">\n    \n    <label for=\"experience\"></label>\n    <textarea name=\"experience\" [(ngModel)]=\"experience\" placeholder=\"Please describe your past-experience\"></textarea>\n    \n    <input type=\"submit\" value=\"register\">\n    <a href=\"login\">Have an account?</a>\n\n  </form>\n</div>"
+module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" ngNativeValidate (submit)=\"createTrainer()\">\n    \n    <label for=\"experience\"></label>\n    <textarea name=\"experience\" [(ngModel)]=\"experience\" placeholder=\"Please describe your past-experience\"></textarea> <br>\n    <label for=\"address\">Address</label><br>\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\n\n    <label for=\"firstName\">First Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\n    <label for=\"lastName\">Last Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\n\n    <label for=\"gender\">Gender</label><br>\n    <select name=\"gender\" required [(ngModel)]=\"gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select><br>\n\n    <label for=\"birthdate\">Date of Birth</label><br>\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\n    <br>\n    <input type=\"submit\" value=\"register\">\n    <a href=\"login\">Have an account?</a>\n\n  </form>\n</div>"
 
 /***/ }),
 
@@ -880,6 +886,11 @@ var RegisterTrainerComponent = /** @class */ (function () {
             id: this.trainerId,
             experience: this.experience,
             rating: 0,
+            address: this.address,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            gender: this.gender,
+            birthdate: this.birthdate
         };
         this.trainerService.post(this.trainer).subscribe();
         this.router.navigateByUrl('home');
@@ -929,7 +940,7 @@ module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\" ngNativeValidate (submit)=\"register()\">\r\n\r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\" [(ngModel)]=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\" required><br>\r\n\r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\" required><br>\r\n\r\n    <label for=\"address\">Address</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\r\n\r\n    <label for=\"firstName\">First Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\r\n    <label for=\"lastName\">Last Name</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\r\n\r\n    <label for=\"gender\">Gender</label><br>\r\n    <select name=\"gender\" required [(ngModel)]=\"gender\">\r\n      <option value=\"male\">Male</option>\r\n      <option value=\"female\">Female</option>\r\n    </select><br>\r\n\r\n    <label for=\"birthdate\">Date of Birth</label><br>\r\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\r\n    <br>\r\n    <input type=\"submit\" value=\"register\">\r\n    <a href=\"login\">Have an account?</a>\r\n\r\n  </form>\r\n</div>"
+module.exports = "<app-header></app-header>\r\n<div class=\"card\" id=\"cardId\">\r\n  <form class=\"register\" ngNativeValidate (submit)=\"register()\">\r\n\r\n    <label for=\"type\">User Type</label><br>\r\n    <select name=\"type\" [(ngModel)]=\"type\">\r\n      <option value=\"trainee\" selected=\"selected\">User</option>\r\n      <option value=\"trainer\">Trainer</option>\r\n    </select><br>\r\n\r\n    <label for=\"username\">Username</label><br>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"user\" required><br>\r\n\r\n    <label for=\"username\">Password</label><br>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"pass\" required><br>\r\n    <br>\r\n    <input type=\"submit\" value=\"register\">\r\n    <a href=\"login\">Have an account?</a>\r\n\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -977,11 +988,6 @@ var RegisterComponent = /** @class */ (function () {
             id: 0,
             username: this.username,
             password: this.password,
-            address: this.address,
-            firstName: this.firstName,
-            lastName: this.lastName,
-            gender: this.gender,
-            birthdate: this.birthdate,
             type: this.type
         };
         this.registerService.register(this.user)
@@ -1310,9 +1316,9 @@ var GoalService = /** @class */ (function () {
         this.http = http;
         this.url = 'http://localhost:8080/FitApp/trainee/';
     }
-    GoalService.prototype.postGoal = function (goal) {
-        return this.http.post(this.url + goal.traineeId + '/goal', goal, httpOptions);
-    };
+    // postGoal(goal: Goal) {
+    //     return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
+    // }
     GoalService.prototype.getGoal = function (traineeId) {
         return this.http.get(this.url + traineeId + '/goal');
     };

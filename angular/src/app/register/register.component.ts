@@ -25,12 +25,7 @@ export class RegisterComponent implements OnInit {
 
   username: string;
   password: string;
-  address: string;
-  firstName: string;
-  lastName: string;
   type: string;
-  gender: string;
-  birthdate: string;
   user: UserAccount;
 
   register() {
@@ -38,11 +33,6 @@ export class RegisterComponent implements OnInit {
       id: 0,
       username: this.username,
       password: this.password,
-      address: this.address,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      gender: this.gender,
-      birthdate: this.birthdate,
       type: this.type
     };
     this.registerService.register(this.user)

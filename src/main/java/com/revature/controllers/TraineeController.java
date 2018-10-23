@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.pojos.Trainee;
+import com.revature.servicess.model.GoalServiceModel;
 import com.revature.servicess.model.TraineeServiceModel;
 
 @Component
@@ -21,6 +22,9 @@ import com.revature.servicess.model.TraineeServiceModel;
 public class TraineeController {
 	@Autowired
 	private TraineeServiceModel traineeServ;
+	
+	@Autowired
+	private GoalServiceModel goalServ;
 	
 	@GetMapping()
 	public List<Trainee> getAll(){
@@ -32,10 +36,12 @@ public class TraineeController {
 	}
 	@PostMapping()
 	public void createUser(@RequestBody Trainee trainee) {
+		goalServ.addGoal(trainee.getGoal());
 		traineeServ.create(trainee);
 	}
 	@PutMapping
 	public void updateUser(@RequestBody Trainee trainee) {
+		goalServ.updateGoal(trainee.getGoal());
 		traineeServ.update(trainee);
 	}
 }

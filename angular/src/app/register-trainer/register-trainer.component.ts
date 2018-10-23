@@ -13,6 +13,11 @@ export class RegisterTrainerComponent implements OnInit {
 
   private experience: string;
   private trainerId: number;
+  private address: string;
+  private firstName: string;
+  private lastName: string;
+  private gender: string;
+  private birthdate: string;
   private trainer = new Trainer();
 
   createTrainer() {
@@ -20,6 +25,11 @@ export class RegisterTrainerComponent implements OnInit {
       id: this.trainerId,
       experience: this.experience,
       rating: 0,
+      address: this.address,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthdate: this.birthdate
     };
     this.trainerService.post(this.trainer).subscribe();
     this.router.navigateByUrl('home');

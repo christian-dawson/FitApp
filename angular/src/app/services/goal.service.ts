@@ -19,9 +19,9 @@ export class GoalService {
 
   constructor(private http: HttpClient) { }
 
-  postGoal(goal: Goal) {
-      return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
-  }
+  // postGoal(goal: Goal) {
+  //     return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
+  // }
   getGoal(traineeId: number) {
     return this.http.get<Goal>(this.url + traineeId + '/goal');
   }
