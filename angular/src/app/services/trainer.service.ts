@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class TrainerService {
 
-    readonly url = 'http://localhost:8080/FitApp/trainer';
+    readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/trainer';
 
     constructor(private http: HttpClient) {}
 

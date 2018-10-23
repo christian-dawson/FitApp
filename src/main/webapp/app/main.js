@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 35%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 17%;\r\n    height: 30%;\r\n}\r\n"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 35%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    z-index: 0;\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 25%;\r\n    height: 38%;\r\n}\r\n"
 
 /***/ }),
 
@@ -374,7 +374,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".dashBody{\r\n  height: 100vh;\r\n}\r\n\r\n#mainDashContainer{\r\n  height: 70vh;\r\n  width: 100vh; \r\n  background-color: white;\r\n}\r\n\r\n#topDashContainer{\r\n  height: 20vh;\r\n  align-content: center;\r\n}"
+module.exports = ".dashBody{\r\n  height: 100vh;\r\n}\r\n\r\n#mainDashContainer{\r\n  height: 70vh;\r\n  width: 100vh;\r\n}\r\n\r\n#topDashContainer{\r\n  height: 20vh;\r\n  align-content: center;\r\n}"
 
 /***/ }),
 
@@ -434,6 +434,10 @@ var DashboardComponent = /** @class */ (function () {
         this.injectorService.setRootViewContainerRef(this.viewContainerRef);
         this.injectorService.addSearchTrainersComponent();
     };
+    DashboardComponent.prototype.displaySearchTraineesComponent = function () {
+        this.injectorService.setRootViewContainerRef(this.viewContainerRef);
+        this.injectorService.addSearchTraineesComponent();
+    };
     DashboardComponent.prototype.displayTraineeSidebar = function () {
         this.injectorService.setRootViewContainerRef(this.sideVCF);
         this.injectorService.addTraineeSidebar();
@@ -454,6 +458,7 @@ var DashboardComponent = /** @class */ (function () {
             else {
                 if (data.type === 'trainer') {
                     _this.displayTrainerSidebar();
+                    _this.displaySearchTraineesComponent();
                 }
                 else {
                     _this.displayTraineeSidebar();
@@ -721,7 +726,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 14rem;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}\r\nbutton{\r\n    margin: left;\r\n}"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 85%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 17%;\r\n    height: 85%;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}\r\nbutton{\r\n    margin: left;\r\n}"
 
 /***/ }),
 
@@ -830,7 +835,7 @@ var RegisterTraineeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 18rem;\r\n    height: 14rem;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}\r\nbutton{\r\n    margin: left;\r\n}"
+module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 60%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 17%;\r\n    height: 60%;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}\r\nbutton{\r\n    margin: left;\r\n}"
 
 /***/ }),
 
@@ -841,7 +846,7 @@ module.exports = ".card{\r\n    position:absolute; /*it can be fixed too*/\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" ngNativeValidate (submit)=\"createTrainer()\">\n    \n    <label for=\"experience\"></label>\n    <textarea name=\"experience\" [(ngModel)]=\"experience\" placeholder=\"Please describe your past-experience\"></textarea> <br>\n    <label for=\"address\">Address</label><br>\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\n\n    <label for=\"firstName\">First Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\n    <label for=\"lastName\">Last Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\n\n    <label for=\"gender\">Gender</label><br>\n    <select name=\"gender\" required [(ngModel)]=\"gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select><br>\n\n    <label for=\"birthdate\">Date of Birth</label><br>\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\n    <br>\n    <input type=\"submit\" value=\"register\">\n    <a href=\"login\">Have an account?</a>\n\n  </form>\n</div>"
+module.exports = "<app-header></app-header>\n<div class=\"card\" id=\"cardId\">\n  <form class=\"register\" ngNativeValidate (submit)=\"createTrainer()\">\n    \n    <br><label for=\"experience\">Experience</label><br>\n    <textarea name=\"experience\" [(ngModel)]=\"experience\" placeholder=\"Please describe your past-experience\"></textarea> <br>\n    <label for=\"address\">Address</label><br>\n    <input type=\"text\" [(ngModel)]=\"address\" name=\"address\" required><br>\n\n    <label for=\"firstName\">First Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"firstName\" name=\"firstName\" required><br>\n    <label for=\"lastName\">Last Name</label><br>\n    <input type=\"text\" [(ngModel)]=\"lastName\" name=\"lastName\" required><br>\n\n    <label for=\"gender\">Gender</label><br>\n    <select name=\"gender\" required [(ngModel)]=\"gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select><br>\n\n    <label for=\"birthdate\">Date of Birth</label><br>\n    <input type=\"date\" [(ngModel)]=\"birthdate\" name=\"birthdate\" required min=\"{{minDate}}\" max={{maxDate}}><br>\n    <br>\n    <input type=\"submit\" value=\"register\">\n    <a href=\"login\">Have an account?</a>\n\n  </form>\n</div>"
 
 /***/ }),
 
@@ -929,7 +934,7 @@ var RegisterTrainerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 80%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 16%;\r\n    height: 74%;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}"
+module.exports = "#cardId{\r\n    position:absolute; /*it can be fixed too*/\r\n    left:0; right:0;\r\n    top:0; bottom:0;\r\n    margin:auto;\r\n    top: 35%;\r\n    -webkit-transform: translateY(-50%);\r\n            transform: translateY(-50%);\r\n    /* transform: translateY(-50%); */\r\n    text-align: center;\r\n    width: 16%;\r\n    height: 30%;\r\n}\r\na{\r\n    margin-left: 10%;\r\n}"
 
 /***/ }),
 
@@ -1025,7 +1030,7 @@ var RegisterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n    width: 100vh;\r\n}"
+module.exports = "table {\r\n    width: 100vh;\r\n}\r\ntr:nth-child(even){background-color: white}\r\ntr:nth-child(odd){background-color: rgba(129, 128, 122, 0.8)};\r\nth {\r\n   background-color: rgb(255, 255, 255) !important;\r\n}\r\n.form-control-plaintext{\r\n    background-color: white !important;\r\n}"
 
 /***/ }),
 
@@ -1036,7 +1041,7 @@ module.exports = "table {\r\n    width: 100vh;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<label>Search Trainees</label>\r\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\r\n<table>\r\n  <tr>\r\n    <th sytle=\"width: 25%\">\r\n      Person Requesting\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Trainee Weight\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Trainee Target Weight\r\n    </th>\r\n    <th style=\"width: 35%\">\r\n      Trainee Goals\r\n    </th>\r\n    <th style=\"width: 10%\">\r\n      Accept Request\r\n    </th>\r\n  </tr>\r\n  <tr *ngFor=\"let u of users | traineePipe : searchText\">\r\n    <td>\r\n      {{u.firstName}} {{u.lastName}}\r\n    </td>\r\n    <td>\r\n      {{ u.weight }}\r\n    </td>\r\n    <td>\r\n      {{ (u.goal) ? u.goal.targetWeight : 'none' }}\r\n    </td>\r\n    <td>\r\n      {{ (u.goal) ? u.goal.type : 'none' }}\r\n    </td>\r\n    <td>\r\n      <button (click)=\"acceptTraining(u)\">Accept</button>\r\n    </td>\r\n  </tr>\r\n</table>\r\n"
+module.exports = "<label>Search Trainees</label>\r\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\r\n<table>\r\n  <tr>\r\n    <th sytle=\"width: 25%\">\r\n      Person Requesting\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Trainee Weight\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Trainee Target Weight\r\n    </th>\r\n    <th style=\"width: 35%\">\r\n      Trainee Goals\r\n    </th>\r\n    <th style=\"width: 10%\">\r\n      Accept Request\r\n    </th>\r\n  </tr>\r\n  <tr *ngFor=\"let u of trainees | traineePipe : searchText\">\r\n    <td>\r\n      {{u.firstName}} {{u.lastName}}\r\n    </td>\r\n    <td>\r\n      {{ u.weight }}\r\n    </td>\r\n    <td>\r\n      {{ (u.goal) ? u.goal.targetWeight : 'none' }}\r\n    </td>\r\n    <td>\r\n      {{ (u.goal) ? u.goal.type : 'none' }}\r\n    </td>\r\n    <td>\r\n      <button (click)=\"acceptTraining(u)\">Accept</button>\r\n    </td>\r\n  </tr>\r\n</table>\r\n"
 
 /***/ }),
 
@@ -1051,7 +1056,7 @@ module.exports = "<label>Search Trainees</label>\r\n<input type=\"text\" readyon
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchTraineesComponent", function() { return SearchTraineesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_trainee_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/trainee.service */ "./src/app/services/trainee.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1064,13 +1069,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var SearchTraineesComponent = /** @class */ (function () {
-    function SearchTraineesComponent(userService) {
-        this.userService = userService;
+    function SearchTraineesComponent(traineeService) {
+        this.traineeService = traineeService;
+        this.searchText = '';
     }
     SearchTraineesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getUsers().subscribe(function (data) {
-            _this.users = data;
+        this.traineeService.getAll().subscribe(function (data) {
+            _this.trainees = data;
         });
     };
     SearchTraineesComponent = __decorate([
@@ -1079,7 +1085,7 @@ var SearchTraineesComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./search-trainees.component.html */ "./src/app/search-trainees/search-trainees.component.html"),
             styles: [__webpack_require__(/*! ./search-trainees.component.css */ "./src/app/search-trainees/search-trainees.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+        __metadata("design:paramtypes", [_services_trainee_service__WEBPACK_IMPORTED_MODULE_1__["TraineeService"]])
     ], SearchTraineesComponent);
     return SearchTraineesComponent;
 }());
@@ -1095,7 +1101,7 @@ var SearchTraineesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n    width: 100vh;\r\n}"
+module.exports = "table {\r\n    width: 100vh;\r\n}\r\ntr:nth-child(even){background-color: white}\r\ntr:nth-child(odd){background-color: rgba(129, 128, 122, 0.8)};\r\nth {\r\n    background-color: rgb(255, 255, 255) !important;\r\n }\r\n.form-control-plaintext{\r\n     background-color: white !important;\r\n }"
 
 /***/ }),
 
@@ -1106,7 +1112,7 @@ module.exports = "table {\r\n    width: 100vh;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<label>Search Trainers</label>\r\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\r\n<table>\r\n\r\n  <tr>\r\n    <th sytle=\"width: 25%\">\r\n      Trainer\r\n    </th>\r\n    <th sytle=\"width: 65%\">\r\n      Trainer skills\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Request Services\r\n    </th>\r\n  </tr>\r\n  <tr *ngFor=\"let u of users | trainerPipe : searchText\">\r\n    <td>\r\n      {{u.firstName}} {{u.lastName}}\r\n    </td>\r\n    <td>\r\n      Weight Training\r\n    </td>\r\n    <td>\r\n      <button (click)=\"requestTraining(u)\">Train</button>\r\n    </td>\r\n  </tr>\r\n</table>"
+module.exports = "<label>Search Trainers</label>\r\n<input type=\"text\" readyonly class=\"form-control-plaintext\" [(ngModel)]=\"searchText\" placeholder=\"Last Name\">\r\n<table>\r\n\r\n  <tr>\r\n    <th sytle=\"width: 25%\">\r\n      Trainer\r\n    </th>\r\n    <th sytle=\"width: 65%\">\r\n      Trainer skills\r\n    </th>\r\n    <th sytle=\"width: 10%\">\r\n      Request Services\r\n    </th>\r\n  </tr>\r\n  <tr *ngFor=\"let u of trainers | trainerPipe : searchText\">\r\n    <td>\r\n      {{u.firstName}} {{u.lastName}}\r\n    </td>\r\n    <td>\r\n      Weight Training\r\n    </td>\r\n    <td>\r\n      <button (click)=\"requestTraining(u)\">Train</button>\r\n    </td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -1136,6 +1142,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SearchTrainersComponent = /** @class */ (function () {
     function SearchTrainersComponent(trainerService) {
         this.trainerService = trainerService;
+        this.searchText = '';
     }
     SearchTrainersComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1219,6 +1226,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _add_goals_add_goals_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../add-goals/add-goals.component */ "./src/app/add-goals/add-goals.component.ts");
 /* harmony import */ var _trainee_sidebar_trainee_sidebar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../trainee-sidebar/trainee-sidebar.component */ "./src/app/trainee-sidebar/trainee-sidebar.component.ts");
 /* harmony import */ var _trainer_sidebar_trainer_sidebar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../trainer-sidebar/trainer-sidebar.component */ "./src/app/trainer-sidebar/trainer-sidebar.component.ts");
+/* harmony import */ var _search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../search-trainees/search-trainees.component */ "./src/app/search-trainees/search-trainees.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1236,6 +1244,7 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+
 var DynamicComponentDashboardService = /** @class */ (function () {
     function DynamicComponentDashboardService(factoryResolver) {
         this.factoryResolver = factoryResolver;
@@ -1246,6 +1255,12 @@ var DynamicComponentDashboardService = /** @class */ (function () {
     DynamicComponentDashboardService.prototype.addSearchTrainersComponent = function () {
         this.rootViewContainer.clear();
         var factory = this.factoryResolver.resolveComponentFactory(_search_trainers_search_trainers_component__WEBPACK_IMPORTED_MODULE_1__["SearchTrainersComponent"]);
+        var component = factory.create(this.rootViewContainer.parentInjector);
+        this.rootViewContainer.insert(component.hostView);
+    };
+    DynamicComponentDashboardService.prototype.addSearchTraineesComponent = function () {
+        this.rootViewContainer.clear();
+        var factory = this.factoryResolver.resolveComponentFactory(_search_trainees_search_trainees_component__WEBPACK_IMPORTED_MODULE_5__["SearchTraineesComponent"]);
         var component = factory.create(this.rootViewContainer.parentInjector);
         this.rootViewContainer.insert(component.hostView);
     };
@@ -1314,11 +1329,8 @@ var userId = 10;
 var GoalService = /** @class */ (function () {
     function GoalService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/trainee/';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/trainee/';
     }
-    // postGoal(goal: Goal) {
-    //     return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
-    // }
     GoalService.prototype.getGoal = function (traineeId) {
         return this.http.get(this.url + traineeId + '/goal');
     };
@@ -1367,8 +1379,8 @@ var httpOptions = {
 var LoginService = /** @class */ (function () {
     function LoginService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/login';
-        this.logoutUrl = 'http://localhost:8080/FitApp/logout';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/login';
+        this.logoutUrl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/logout';
     }
     LoginService.prototype.login = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -1421,7 +1433,7 @@ var httpOptions = {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/user';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/user';
     }
     RegisterService.prototype.register = function (user) {
         return this.http.post(this.url, JSON.stringify(user), httpOptions);
@@ -1474,7 +1486,7 @@ var httpOptions = {
 var SessionInfoService = /** @class */ (function () {
     function SessionInfoService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/session';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/session';
     }
     SessionInfoService.prototype.getLoggedInUser = function () {
         return this.http.get(this.url);
@@ -1570,7 +1582,7 @@ var httpOptions = {
 var TraineeService = /** @class */ (function () {
     function TraineeService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/trainee';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/trainee';
     }
     TraineeService.prototype.getAll = function () {
         return this.http.get(this.url);
@@ -1629,7 +1641,7 @@ var httpOptions = {
 var TrainerService = /** @class */ (function () {
     function TrainerService(http) {
         this.http = http;
-        this.url = 'http://localhost:8080/FitApp/trainer';
+        this.url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/trainer';
     }
     TrainerService.prototype.getAll = function () {
         return this.http.get(this.url);
@@ -1650,59 +1662,6 @@ var TrainerService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], TrainerService);
     return TrainerService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/user.service.ts":
-/*!******************************************!*\
-  !*** ./src/app/services/user.service.ts ***!
-  \******************************************/
-/*! exports provided: UserService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var httpOptions = {
-    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-        'Content-Type': 'application/json'
-    })
-};
-var UserService = /** @class */ (function () {
-    function UserService(http) {
-        this.http = http;
-        this.url = 'http://localhost:8080/FitApp/user/';
-    }
-    UserService.prototype.getUsers = function () {
-        return this.http.get(this.url);
-    };
-    UserService.prototype.postUser = function (user) {
-        return this.http.post(this.url, user, httpOptions);
-    };
-    UserService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], UserService);
-    return UserService;
 }());
 
 

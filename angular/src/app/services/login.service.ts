@@ -16,9 +16,9 @@ const httpOptions = {
 })
 export class LoginService {
 
-    readonly url = 'http://localhost:8080/FitApp/login';
+    readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/login';
 
-    readonly logoutUrl = 'http://localhost:8080/FitApp/logout';
+    readonly logoutUrl = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/logout';
 
     constructor(private http: HttpClient) {}
 

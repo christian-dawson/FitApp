@@ -15,13 +15,10 @@ const userId = 10;
   providedIn: 'root'
 })
 export class GoalService {
-  readonly url = 'http://localhost:8080/FitApp/trainee/';
+  readonly url = 'http://ec2-18-216-239-106.us-east-2.compute.amazonaws.com:8080/FitApp/trainee/';
 
   constructor(private http: HttpClient) { }
 
-  // postGoal(goal: Goal) {
-  //     return this.http.post<Goal>(this.url + goal.traineeId + '/goal', goal, httpOptions);
-  // }
   getGoal(traineeId: number) {
     return this.http.get<Goal>(this.url + traineeId + '/goal');
   }

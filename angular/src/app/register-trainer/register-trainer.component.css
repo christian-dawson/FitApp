@@ -3,12 +3,13 @@
     left:0; right:0;
     top:0; bottom:0;
     margin:auto;
+    top: 60%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     /* transform: translateY(-50%); */
     text-align: center;
-    width: 18rem;
-    height: 14rem;
+    width: 17%;
+    height: 60%;
 }
 a{
     margin-left: 10%;

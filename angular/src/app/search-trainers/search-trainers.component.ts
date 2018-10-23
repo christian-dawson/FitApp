@@ -12,6 +12,7 @@ import { Trainer } from '../types/Trainer';
 export class SearchTrainersComponent implements OnInit {
 
   private trainers: Array<Trainer>;
+  private searchText = '';
 
   constructor(private trainerService: TrainerService) { }
 

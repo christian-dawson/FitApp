@@ -7,6 +7,7 @@ import { SearchTrainersComponent } from '../search-trainers/search-trainers.comp
 import { AddGoalsComponent } from '../add-goals/add-goals.component';
 import { TraineeSidebarComponent } from '../trainee-sidebar/trainee-sidebar.component';
 import { TrainerSidebarComponent } from '../trainer-sidebar/trainer-sidebar.component';
+import { SearchTraineesComponent } from '../search-trainees/search-trainees.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,12 @@ export class DynamicComponentDashboardService {
   addSearchTrainersComponent() {
     this.rootViewContainer.clear();
     const factory = this.factoryResolver.resolveComponentFactory(SearchTrainersComponent);
+    const component = factory.create(this.rootViewContainer.parentInjector);
+    this.rootViewContainer.insert(component.hostView);
+  }
+  addSearchTraineesComponent() {
+    this.rootViewContainer.clear();
+    const factory = this.factoryResolver.resolveComponentFactory(SearchTraineesComponent);
     const component = factory.create(this.rootViewContainer.parentInjector);
     this.rootViewContainer.insert(component.hostView);
   }

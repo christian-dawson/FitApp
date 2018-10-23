@@ -18,7 +18,7 @@
       Accept Request
     </th>
   </tr>
-  <tr *ngFor="let u of users | traineePipe : searchText">
+  <tr *ngFor="let u of trainees | traineePipe : searchText">
     <td>
       {{u.firstName}} {{u.lastName}}
     </td>

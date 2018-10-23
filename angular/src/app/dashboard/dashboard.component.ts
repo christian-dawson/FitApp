@@ -44,6 +44,10 @@ export class DashboardComponent implements OnInit {
     this.injectorService.setRootViewContainerRef(this.viewContainerRef);
     this.injectorService.addSearchTrainersComponent();
   }
+  displaySearchTraineesComponent() {
+    this.injectorService.setRootViewContainerRef(this.viewContainerRef);
+    this.injectorService.addSearchTraineesComponent();
+  }
 
   displayTraineeSidebar() {
     this.injectorService.setRootViewContainerRef(this.sideVCF);
@@ -64,6 +68,7 @@ export class DashboardComponent implements OnInit {
       } else {
         if (data.type === 'trainer') {
           this.displayTrainerSidebar();
+          this.displaySearchTraineesComponent();
         } else {
           this.displayTraineeSidebar();
           this.displaySearchTrainersComponent();
